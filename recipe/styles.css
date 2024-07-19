@@ -2,10 +2,47 @@ html {
     background-color: #F9F9F9;
 }
 
-h1, h2, h4 {
+h1, h2, h3 {
     color: #46537C;
+    font-family: "Rufina", serif;
+    font-weight: 700;
 }
 
-p, li, footer {
+h1 {
+    font-size: 36pt;
+}
+
+p,
+li {
     color: #2a3349;
 }
+
+p,
+li,
+a {
+    font-family: "Sarala", sans-serif;
+}
+
+a {
+    color: #A64503;
+}
+
+footer {
+    color: #46537C;
+    font-family: "Rufina", serif;
+    font-size: 20pt;
+}
+
+.introduction {
+    font-size: 14pt;
+}
+
+.subtext {
+    font-family: "Unica One", sans-serif;
+}
+
+/* 
+font-family: "Sarala", sans-serif; 
+font-family: "Unica One", sans-serif;
+font-family: "Rufina", serif;
+*/
