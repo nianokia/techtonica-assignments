@@ -19,31 +19,33 @@
 // myListItem.innerHTML = "HELLO";
 // desc.append(checkbox);
 
+// MODIFY OPACITY WHEN USER HOVERS OVER LINKS
+
 // const allLinks = document.getElementsByClassName("hoveredLink");
-// allLinks.addEventListener("hover", function() {
-//     document.a.style.color = "red";
+// allLinks.addEventListener("mouseover", function() {
+//     allLinks.style.opacity = "60%";
 // });
 
-const listItem1 = document.getElementById("hoveredLink1");
-listItem1.addEventListener("mouseover", function() {
-    listItem1.style.opacity = "60%";
+const linkItem1 = document.getElementById("hoveredLink1");
+linkItem1.addEventListener("mouseover", function() {
+    linkItem1.style.opacity = "60%";
 }, false);
-listItem1.addEventListener("mouseout", function() {
-    listItem1.style.opacity = "100%";
+linkItem1.addEventListener("mouseout", function() {
+    linkItem1.style.opacity = "100%";
 }, false)
 
-const listItem2 = document.getElementById("hoveredLink2");
-listItem2.addEventListener("mouseover", function() {
-    listItem2.style.opacity = "60%";
+const linkItem2 = document.getElementById("hoveredLink2");
+linkItem2.addEventListener("mouseover", function() {
+    linkItem2.style.opacity = "60%";
 }, false);
-listItem2.addEventListener("mouseout", function() {
-    listItem2.style.opacity = "100%";
+linkItem2.addEventListener("mouseout", function() {
+    linkItem2.style.opacity = "100%";
 }, false)
 
-const listItem3 = document.getElementById("hoveredLink3");
-listItem3.addEventListener("mouseover", function() {
-    listItem3.style.opacity = "60%";
+const linkItem3 = document.getElementById("hoveredLink3");
+linkItem3.addEventListener("mouseover", function() {
+    linkItem3.style.opacity = "60%";
 }, false);
-listItem3.addEventListener("mouseout", function() {
-        listItem3.style.opacity = "100%";
+linkItem3.addEventListener("mouseout", function() {
+        linkItem3.style.opacity = "100%";
 }, false)
