@@ -12,6 +12,10 @@ h1 {
     font-size: 36pt;
 }
 
+h2 {
+    font-size: 24px;
+}
+
 p,
 li {
     color: #2a3349;
@@ -31,6 +35,10 @@ footer {
     color: #46537C;
     font-family: "Rufina", serif;
     font-size: 20pt;
+    display: block;
+    position: absolute;
+    top: 685px;
+    padding-bottom: 20px;
 }
 
 .description {
@@ -45,6 +53,18 @@ footer {
 .left {
     width: 600px;
     float: left;
+    margin-top: 25px;
+}
+
+.right {
+    width: 600px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 0px;
+}
+
+.footerContainer {
+    position: relative;
 }
 
 /* 
