@@ -1,3 +1,11 @@
 html {
     background-color: #F9F9F9;
 }
+
+h1, h2, h4 {
+    color: #46537C;
+}
+
+p, li, footer {
+    color: #2a3349;
+}
