@@ -6,19 +6,6 @@
     - add checkboxes after li with class steps
 */
 
-// const myListItem = document.getElementsByClassName("step");
-// const desc = document.getElementById("description");
-
-// let checkbox = document.createElement("input");
-
-// checkbox.type = "checkbox";
-// checkbox.name = "name";
-// checkbox.value = "value";
-// checkbox.id = "check";
-
-// myListItem.innerHTML = "HELLO";
-// desc.append(checkbox);
-
 // MODIFY OPACITY WHEN USER HOVERS OVER LINKS
 
 // const allLinks = document.getElementsByClassName("hoveredLink");
@@ -47,5 +34,31 @@ linkItem3.addEventListener("mouseover", function() {
     linkItem3.style.opacity = "60%";
 }, false);
 linkItem3.addEventListener("mouseout", function() {
-        linkItem3.style.opacity = "100%";
+    linkItem3.style.opacity = "100%";
 }, false)
+
+
+// FOOTER APPEARS AND DISAPPEARS WHEN USER SCROLLS
+
+// const footer = document.querySelector("footer");
+// footer.addEventListener("scroll", function() {
+//     footer.style.display = "contents";
+// }, false);
+// footer.addEventListener("scrollend", function() {
+//     footer.style.display = "none";
+// }, false);
+
+// ADD CHECKBOXES AFTER EACH li IN THE OLs
+
+// const myListItem = document.getElementsByClassName("step");
+// const desc = document.getElementById("description");
+
+// let checkbox = document.createElement("input");
+
+// checkbox.type = "checkbox";
+// checkbox.name = "name";
+// checkbox.value = "value";
+// checkbox.id = "check";
+
+// myListItem.innerHTML = "HELLO";
+// desc.append(checkbox);
