@@ -33,8 +33,9 @@ footer {
     font-size: 20pt;
 }
 
-.introduction {
+.description {
     font-size: 14pt;
+    width: 600px;
 }
 
 .subtext {
