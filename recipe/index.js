@@ -3,44 +3,27 @@
     - footer appears when user scrolls down
     - footer disappears when user scrolls up
     - modify opacity when user hovers over links
-    - add checkboxes after li with class steps
+    - add checkboxes after li with class ingriedients
 */
 
-// MODIFY OPACITY WHEN USER HOVERS OVER LINKS
+// ******* MODIFY OPACITY WHEN USER HOVERS OVER LINKS *******
 
-// const allLinks = document.getElementsByClassName("hoveredLink");
-// allLinks.addEventListener("mouseover", function() {
-//     allLinks.style.opacity = "60%";
-// });
-
-const linkItem1 = document.getElementById("hoveredLink1");
-linkItem1.addEventListener("mouseover", function() {
-    linkItem1.style.opacity = "60%";
+const allLinks = document.getElementsByClassName("hoveredLink");
+for (let i = 0; i < allLinks.length; i++) {
+    // run when user hovers over
+    allLinks[i].addEventListener("mouseover", function() {
+    allLinks[i].style.opacity = "60%";
 }, false);
-linkItem1.addEventListener("mouseout", function() {
-    linkItem1.style.opacity = "100%";
-}, false)
-
-const linkItem2 = document.getElementById("hoveredLink2");
-linkItem2.addEventListener("mouseover", function() {
-    linkItem2.style.opacity = "60%";
+    // run when user stops hovering over
+    allLinks[i].addEventListener("mouseout", function() {
+    allLinks[i].style.opacity = "100%";
 }, false);
-linkItem2.addEventListener("mouseout", function() {
-    linkItem2.style.opacity = "100%";
-}, false)
+}
 
-const linkItem3 = document.getElementById("hoveredLink3");
-linkItem3.addEventListener("mouseover", function() {
-    linkItem3.style.opacity = "60%";
-}, false);
-linkItem3.addEventListener("mouseout", function() {
-    linkItem3.style.opacity = "100%";
-}, false)
+// ******* FOOTER APPEARS AND DISAPPEARS WHEN USER SCROLLS *******
 
+const footer = document.querySelector("footer");
 
-// FOOTER APPEARS AND DISAPPEARS WHEN USER SCROLLS
-
-// const footer = document.querySelector("footer");
 // footer.addEventListener("scroll", function() {
 //     footer.style.display = "contents";
 // }, false);
@@ -48,17 +31,40 @@ linkItem3.addEventListener("mouseout", function() {
 //     footer.style.display = "none";
 // }, false);
 
-// ADD CHECKBOXES AFTER EACH li IN THE OLs
 
-// const myListItem = document.getElementsByClassName("step");
-// const desc = document.getElementById("description");
+// (window).scroll(function() {
+//    if((window).scrollTop() + (window).height() == (document).height()) {
+//        alert("bottom!");
+//    }
+// });
 
-// let checkbox = document.createElement("input");
+// document.getElementById('box').addEventListener(
+//     'scroll',
+//     function()
+//     {
+//         var scrollTop = document.getElementById('box').scrollTop;
+//         var scrollHeight = document.getElementById('box').scrollHeight; // added
+//         var offsetHeight = document.getElementById('box').offsetHeight;
+//         // var clientHeight = document.getElementById('box').clientHeight;
+//         var contentHeight = scrollHeight - offsetHeight; // added
+//         if (contentHeight <= scrollTop) // modified
+//         {
+//             // Now this is called when scroll end!
+//         }
+//     },
+//     false
+// )
 
-// checkbox.type = "checkbox";
-// checkbox.name = "name";
-// checkbox.value = "value";
-// checkbox.id = "check";
+// document.getElementsByClassName("bodyContainer").addEventListener("scroll", function() {
+//     let scrollTop = document.getElementsByClassName("bodyContainer").scrollTop;
+//     let scrollHeight = document.getElementsByClassName("bodyContainer").scrollHeight;
+//     let offsetHeight = document.getElementsByClassName("bodyContainer").offsetHeight;
+//     let contentHeight = scrollHeight - offsetHeight;
+//     if (contentHeight <= scrollTop) {
+//         alert("hello");
+//     }
+// }, false);
 
-// myListItem.innerHTML = "HELLO";
-// desc.append(checkbox);
+
+// ******* ADD CHECKBOXES AFTER EACH li IN THE OLs *******
+
