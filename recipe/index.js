@@ -1,9 +1,8 @@
 // DOM manipulation
 /* Objectives
-    - footer appears when user scrolls down
-    - footer disappears when user scrolls up
     - modify opacity when user hovers over links
-    - add checkboxes after li with class ingriedients
+    - footer border appears & disappears when user hovers over
+    - create list of ingredients with checkbox bullet points
 */
 
 // ******* MODIFY OPACITY WHEN USER HOVERS OVER LINKS *******
@@ -20,53 +19,23 @@ for (let i = 0; i < allLinks.length; i++) {
 }, false);
 }
 
-// ******* FOOTER APPEARS AND DISAPPEARS WHEN USER SCROLLS *******
 
-const footer = document.querySelector("footer");
+// ******* FOOTER BORDER APPEARS AND DISAPPEARS WHEN USER SCROLLS *******
 
-// footer.addEventListener("scroll", function() {
-//     footer.style.display = "contents";
-// }, false);
-// footer.addEventListener("scrollend", function() {
-//     footer.style.display = "none";
-// }, false);
+const footer = document.querySelector(".footerContainer");
 
-
-// (window).scroll(function() {
-//    if((window).scrollTop() + (window).height() == (document).height()) {
-//        alert("bottom!");
-//    }
-// });
-
-// document.getElementById('box').addEventListener(
-//     'scroll',
-//     function()
-//     {
-//         var scrollTop = document.getElementById('box').scrollTop;
-//         var scrollHeight = document.getElementById('box').scrollHeight; // added
-//         var offsetHeight = document.getElementById('box').offsetHeight;
-//         // var clientHeight = document.getElementById('box').clientHeight;
-//         var contentHeight = scrollHeight - offsetHeight; // added
-//         if (contentHeight <= scrollTop) // modified
-//         {
-//             // Now this is called when scroll end!
-//         }
-//     },
-//     false
-// )
-
-// document.getElementsByClassName("bodyContainer").addEventListener("scroll", function() {
-//     let scrollTop = document.getElementsByClassName("bodyContainer").scrollTop;
-//     let scrollHeight = document.getElementsByClassName("bodyContainer").scrollHeight;
-//     let offsetHeight = document.getElementsByClassName("bodyContainer").offsetHeight;
-//     let contentHeight = scrollHeight - offsetHeight;
-//     if (contentHeight <= scrollTop) {
-//         alert("hello");
-//     }
-// }, false);
+footer.addEventListener("mouseover", () => {
+    footer.style.border = "3px dashed #46537C";
+    footer.style.backgroundColor = "#ededed"
+    footer.style.borderRadius = "12px";
+}, false);
+footer.addEventListener("mouseout", () => {
+    footer.style.border = "none";
+    footer.style.backgroundColor = "#f9f9f9"
+}, false);
 
 
-// ******* ADD CHECKBOX INPUT BEFORE EACH li IN THE INGREDIENTS DIV  *******
+// ******* CREATE LIST OF INGREDIENTS WITH CHECKBOX BULLET POINTS  *******
 
 // select & store ingredients div in list
 const list = document.getElementById("ingredients");
@@ -107,4 +76,3 @@ ingredientList.forEach(ingredient => {
     list.style.backgroundColor = "#46537C";
     holder.style.margin = "12px 0px 12px 110px";
 });
-

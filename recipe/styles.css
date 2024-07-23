@@ -70,9 +70,12 @@ footer {
 }
 
 .footerContainer {
-    width: 100%;
+    width: 80px;
+    text-align: center;
     margin-top: 55px;
+    padding: 10px 60px;
     display: block;
+    transition: all 200ms ease-in-out;
 }
 
 /* 
