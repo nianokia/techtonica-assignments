@@ -70,13 +70,9 @@ footer {
 }
 
 .footerContainer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
-    margin-left: 40px;
-    padding: 20px;
-    display: none;
+    margin-top: 55px;
+    display: block;
 }
 
 /* 
