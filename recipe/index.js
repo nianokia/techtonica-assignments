@@ -99,6 +99,12 @@ ingredientList.forEach(ingredient => {
     holder.appendChild(label);
     list.appendChild(holder);
 
-    holder.style.color = "#2a3349";
+    // change styling to match the rest of the page
+    holder.style.color = "#F9F9F9";
     holder.style.fontFamily = "'Sarala', sans-serif";
+    list.style.border = "5px dashed #F9F9F9";
+    list.style.borderRadius = "30px";
+    list.style.backgroundColor = "#46537C";
+    holder.style.margin = "12px 0px 12px 110px";
 });
+
