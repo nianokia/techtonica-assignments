@@ -66,5 +66,39 @@ const footer = document.querySelector("footer");
 // }, false);
 
 
-// ******* ADD CHECKBOXES AFTER EACH li IN THE OLs *******
+// ******* ADD CHECKBOX INPUT BEFORE EACH li IN THE INGREDIENTS DIV  *******
 
+// select & store ingredients div in list
+const list = document.getElementById("ingredients");
+
+// create array of ingredient list
+let ingredientList = ["3 Eggs", "1/4 Cup of Milk", "Generous Sprinkle of Ground Cinnamon", "4 Slices of Bread", "1/3 Stick of Butter"];
+
+// iterate through ingredientList to append input and labels
+ingredientList.forEach(ingredient => {
+    // create an ol to append iterated content
+    let holder = document.createElement("ul");
+
+    // select and store checkbox input in variable checkbox
+    let checkbox = document.createElement("input");
+
+    // declare and define properties of the input checkbox
+    checkbox.type = "checkbox";
+    checkbox.name = "name";
+    checkbox.value = "value";
+    checkbox.id = ingredient;
+
+    // create label and assign it same id as checkbox
+    let label = document.createElement("label");
+    label.htmlFor = ingredient;
+
+    label.appendChild(document.createTextNode(ingredient));
+
+    // append checkbox & label to ol, then append that to the div "list"
+    holder.appendChild(checkbox);
+    holder.appendChild(label);
+    list.appendChild(holder);
+
+    holder.style.color = "#2a3349";
+    holder.style.fontFamily = "'Sarala', sans-serif";
+});
