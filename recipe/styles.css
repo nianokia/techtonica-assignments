@@ -33,6 +33,7 @@ a {
 
 a {
     color: #A64503;
+    transition: all 200ms ease-in-out;
 }
 
 footer {
