@@ -20,20 +20,19 @@ h2 {
     font-size: 24px;
 }
 
-p,
+p {
+    font-family: "Unica One", sans-serif;
+}
+
+header,
 li {
     color: #2a3349;
 }
 
-p,
+header,
 li,
 a {
     font-family: "Sarala", sans-serif;
-}
-
-a {
-    color: #A64503;
-    transition: all 200ms ease-in-out;
 }
 
 footer {
@@ -45,7 +44,12 @@ footer {
 .container {
     display: block;
     margin: 10px 0px 0px 50px;
+    background-color: #F9F9F9;
 }
+/* 
+.top {
+    width: 100%;
+} */
 
 .description {
     font-size: 14pt;
@@ -53,12 +57,22 @@ footer {
     text-align: justify;
 }
 
-.subtext {
+a.card-text {
+    color: #A64503;
+}
+
+.card p {
     font-family: "Unica One", sans-serif;
+}
+
+.hoveredLink {
+    color: #A64503;
+    transition: all 200ms ease-in-out;
 }
 
 .left {
     width: 600px;
+    background-color: #F9F9F9;
     float: left;
     margin-top: 25px;
     margin-bottom: 50px;
@@ -66,13 +80,14 @@ footer {
 
 .right {
     width: 600px;
+    background-color: #F9F9F9;
     float: left;
     margin: 0px 0px 50px 50px;
 }
 
 .footerContainer {
-    width: 80px;
     text-align: center;
+    background-color: #F9F9F9;
     margin-top: 55px;
     padding: 10px 60px;
     display: block;
