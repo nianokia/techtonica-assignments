@@ -14,6 +14,7 @@ h1 {
 
 img {
     border-radius: 30px;
+    width: 100%;
 }
 
 h2 {
@@ -43,17 +44,20 @@ footer {
 
 .container {
     display: block;
-    margin: 10px 0px 0px 50px;
+    max-width: 1300px;
+    /* margin-top: 50px;
+    margin-bottom: 50px; */
+    margin: 50px auto;
     background-color: #F9F9F9;
 }
-/* 
-.top {
+
+/* .top {
     width: 100%;
 } */
 
 .description {
     font-size: 14pt;
-    width: 600px;
+    width: 100%;
     text-align: justify;
 }
 
@@ -71,7 +75,7 @@ a.card-text {
 }
 
 .left {
-    width: 600px;
+    width: 100%;
     background-color: #F9F9F9;
     float: left;
     margin-top: 25px;
@@ -79,7 +83,7 @@ a.card-text {
 }
 
 .right {
-    width: 600px;
+    width: 100%;
     background-color: #F9F9F9;
     float: left;
     margin: 0px 0px 50px 50px;
