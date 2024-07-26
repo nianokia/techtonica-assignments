@@ -60,6 +60,41 @@ footer {
     background-color: var(--background-color);
 }
 
+.navbar {
+    font-size: 1.25em;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+}
+
+.navbar-custom a {
+    color: var(--background-color);
+    font-size: 1.25em;
+}
+
+.navbar-custom a:hover {
+    color: var(--background-color);
+    opacity: 70%;
+    transition: all 200ms ease-in-out;
+}
+.navbar-custom .nav-link {
+    font-family: var(--heading-font);
+}
+
+.navbar-custom .dropdown-item {
+    font-size: 1em;
+    color: var(--accent-color);
+    font-family: var(--default-font);
+}
+
+.navbar-custom .dropdown-item:hover{
+    color: var(--secondary-color);
+    opacity: 100%;
+}
+
+.navbar-brand {
+    font-family: var(--accent-font);
+}
+
 .top {
     /* width: 100%; */
     background-color: var(--background-color);
