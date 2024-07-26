@@ -8,7 +8,7 @@
     --accent-font: "Unica One", sans-serif;
 }
 
-html {
+html body {
     background-color: var(--background-color);
 }
 
@@ -63,6 +63,8 @@ footer {
     margin-bottom: 50px; */
     /* margin: 50px auto; */
     background-color: var(--background-color);
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
 .navbar {
@@ -146,9 +148,14 @@ a.card-text {
     background-color: var(--background-color);
 }
 
+.step2And3 {
+    margin-top: 35px;
+}
+
 .footerContainer {
     display: block;
-    margin-top: 55px;
+    margin-top: 35px;
+    margin-bottom: 55px;
     padding: 10px 60px;
     text-align: center;
     background-color: var(--background-color);
@@ -194,7 +201,7 @@ a.card-text {
     }
 
     .steps {
-        margin-left: -50px;
+        margin-left: -70px;
     }
 
     .footerContainer {
@@ -202,8 +209,8 @@ a.card-text {
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1450px) {
-    .step-1 {
+@media (min-width: 1024px) and (max-width: 1450px) {   
+    .step1 {
         margin-top: -30px;
     }
 
@@ -214,6 +221,6 @@ a.card-text {
 
 @media (min-width: 1451px) {
     .footerContainer {
-        margin-top: 100px;
+        margin-top: 35px;
     }
 }

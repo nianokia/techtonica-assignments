@@ -78,6 +78,7 @@ ingredientList.forEach(ingredient => {
     holder.style.fontSize = "1.25em"
     holder.style.color = "#F9F9F9";   
 
+    list.style.marginTop = "30px"
     list.style.marginBottom = "30px";
     list.style.border = "5px dashed #F9F9F9";
     list.style.borderRadius = "30px";
