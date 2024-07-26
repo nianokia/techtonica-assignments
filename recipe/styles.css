@@ -58,10 +58,6 @@ footer {
 }
 
 .container-all-content {
-    /* max-width: 1300px;
-    margin-top: 50px;
-    margin-bottom: 50px; */
-    /* margin: 50px auto; */
     background-color: var(--background-color);
     max-width: 1300px;
     margin: 0 auto;
@@ -103,7 +99,6 @@ footer {
 }
 
 .top {
-    /* width: 100%; */
     background-color: var(--background-color);
 }
 
@@ -127,11 +122,6 @@ a.card-text {
 }
 
 .photoAndIngredients {
-    /* margin-top: 25px;
-    margin-bottom: 50px;
-    margin-right: 75px;
-    margin: 25px 75px 50px 0px; */
-    /* width: 100%; */
     float: left;
     background-color: var(--background-color);
 }
@@ -141,8 +131,6 @@ a.card-text {
 }
 
 .steps {
-    /* margin: 0px 0px 50px 50px; */
-    /* width: 100%; */
     padding-left: 100px;
     float: left;
     background-color: var(--background-color);
