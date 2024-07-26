@@ -18,8 +18,8 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
-h1 {
-    font-size: 36pt;
+main {
+    margin-top: 50px;
 }
 
 img {
@@ -28,7 +28,7 @@ img {
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 1.5em;
 }
 
 p {
@@ -44,6 +44,10 @@ header,
 li,
 a {
     font-family: var(--default-font);
+}
+
+li {
+    font-size: 1.25em;
 }
 
 footer {
@@ -103,7 +107,7 @@ footer {
 .description {
     width: 100%;
     text-align: justify;
-    font-size: 14pt;
+    font-size: 1.55em;
 }
 
 a.card-text {
@@ -119,20 +123,25 @@ a.card-text {
     transition: all 200ms ease-in-out;
 }
 
-.left {
+.photoAndIngredients {
     /* margin-top: 25px;
     margin-bottom: 50px;
     margin-right: 75px;
     margin: 25px 75px 50px 0px; */
     /* width: 100%; */
-    /* float: left; */
+    float: left;
     background-color: var(--background-color);
 }
 
-.right {
+.ingredients {
+    margin-bottom: 70px;
+}
+
+.steps {
     /* margin: 0px 0px 50px 50px; */
     /* width: 100%; */
-    /* float: left; */
+    padding: 50px;
+    float: left;
     background-color: var(--background-color);
 }
 

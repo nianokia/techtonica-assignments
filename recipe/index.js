@@ -73,12 +73,13 @@ ingredientList.forEach(ingredient => {
     list.appendChild(holder);
 
     // change styling to match the rest of the page
-    holder.style.color = "#F9F9F9";
+    holder.style.margin = "15px 0px";
     holder.style.fontFamily = "'Sarala', sans-serif";
-    holder.style.margin = "12px 0px";
+    holder.style.fontSize = "1.25em"
+    holder.style.color = "#F9F9F9";   
 
+    list.style.marginBottom = "30px";
     list.style.border = "5px dashed #F9F9F9";
     list.style.borderRadius = "30px";
     list.style.backgroundColor = "#46537C";
-    list.style.marginBottom = "50px";
 });
