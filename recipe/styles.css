@@ -48,6 +48,7 @@ a {
 
 li {
     font-size: 1.25em;
+    text-align: justify;
 }
 
 footer {
@@ -140,7 +141,7 @@ a.card-text {
 .steps {
     /* margin: 0px 0px 50px 50px; */
     /* width: 100%; */
-    padding: 50px;
+    padding-left: 100px;
     float: left;
     background-color: var(--background-color);
 }
@@ -152,4 +153,67 @@ a.card-text {
     text-align: center;
     background-color: var(--background-color);
     transition: all 200ms ease-in-out;
+}
+
+@media (max-width: 575px) {
+    li {
+        font-size: 1.12em;
+        text-align: left;
+    }
+
+    .description {
+        font-size: 1.25em;
+    }
+
+    .steps {
+        padding: 0;
+    }
+
+    .footerContainer {
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 823px) {
+    .description {
+        font-size: 1.25em;
+    }
+
+    .steps {
+        padding: 0;
+    }
+    
+    .footerContainer {
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width: 824px) and (max-width: 1023px) {
+    .photoAndIngredients {
+        margin-left: 20px;
+    }
+
+    .steps {
+        margin-left: -50px;
+    }
+
+    .footerContainer {
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1450px) {
+    .step-1 {
+        margin-top: -30px;
+    }
+
+    .footerContainer {
+        margin-bottom: 40px;
+    }
+}
+
+@media (min-width: 1451px) {
+    .footerContainer {
+        margin-top: 100px;
+    }
 }
