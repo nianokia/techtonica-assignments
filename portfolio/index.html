@@ -38,6 +38,18 @@
                 </ul>
             </div>
         </section>
+        <form>
+            <label for="contactName">Name: </label>
+            <input type="text" name="contactName" id="contactName" placeholder="Jane Doe" required>
+            <br>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="example@example.com" required>
+            <br>
+            <label for="phone">Phone Number: </label>
+            <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="(000)000-0000">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
 		<section>
             <h3>Contact Information</h3>
             <div><strong>Email: </strong>nw@niawright@gmail.com</div>

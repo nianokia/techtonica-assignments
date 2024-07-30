@@ -3,13 +3,24 @@ html body {
 }
 
 .container-fluid {
-    margin: 0 auto;
+    margin: 20px auto;
     max-width: 1300px;
     color: #0A1338;
 }
 
 img {
     width: 300px;
+}
+
+form {
+    padding: 20px;
+    border: dashed #0A1338 1px;
+    margin: 20px 0px;
+    width: 400px;
+}
+
+label {
+    margin: 8px 0px;
 }
 
 footer a {
