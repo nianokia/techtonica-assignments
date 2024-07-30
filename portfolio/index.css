@@ -1,3 +1,22 @@
 html body {
-    background-color: bisque;
+    background-color: #D6E4F0;
+}
+
+.container-fluid {
+    margin: 0 auto;
+    max-width: 1300px;
+    color: #0A1338;
+}
+
+img {
+    width: 300px;
+}
+
+footer a {
+    color: #1B3973;
+}
+
+footer a:hover {
+    color: #E5861B;
+    transition: all 200ms ease-in-out;
 }
