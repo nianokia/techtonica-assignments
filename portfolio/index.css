@@ -16,11 +16,25 @@ form {
     padding: 20px;
     border: dashed #0A1338 1px;
     margin: 20px 0px;
-    width: 400px;
+    width: 45%;
 }
 
 label {
     margin: 8px 0px;
+}
+
+input {
+    border: 1px solid #0A1338;
+    width: 100%;
+}
+
+button {
+    background-color: #0A1338;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 footer a {

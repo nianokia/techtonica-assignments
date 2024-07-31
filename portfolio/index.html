@@ -14,28 +14,49 @@
 <body>
     <div class="container-fluid">
         <header>
-            <div class="col-6">
+            <div>
                 <h1>Nia Wright</h1>
                 <h2>Software Engineer</h2>
             </div>
-            <div class="col-6">
+            <div>
                 <img src="/profile-pic.JPG" alt="headshot of Nia Wright">
             </div>
 		</header>
         <section>
-            <h3>Coding Experience</h3>
-            <p>
-                I'm a Software Engineer coming from a non-traditional background, specializing in languages. I use this to my
-            advantage when tackling new programming languages. I primarily work with HTML, CSS, and JavaScript! In my spare
-            time, I love reading manga and eating breakfast.
-            </p>
-            <div class="work">
-                <h5>Service Advisor</h5>
-                <ul>
-                    <li>Attend to walk-in customers while fulfilling online print orders.</li>
-                    <li>Utilize Adobe program</li>
-                    <li>Deliver print orders accurately and efficiently.</li>
-                </ul>
+            <div class="aboutMe">
+                <h3>About Me</h3>
+                <p>
+                    I'm a Software Engineer coming from a non-traditional background, specializing in languages. I use this to my
+                    advantage when tackling new programming languages. I primarily work with HTML, CSS, and JavaScript! In my spare
+                    time, I love reading manga and eating breakfast.
+                </p>
+            </div>
+            <div class="codingExp">
+                <h3>Coding Experience</h3>
+            </div>
+            <div class="workExp">
+                <h3>Work Experience</h3>
+                <div class="work">
+                    <h5>Services Advisor</h5>
+                    <div class="companyAndDates">
+                        <span>Office Depot</span><span>Jan 2024 - Jul 2024</span>
+                    </div>
+                    <ul>
+                        <li>Triage online order tickets, create, print, and edit customer files, and deliver products that meet customer
+                            and company
+                            expectations.</li>
+                        <li>Prioritize walk-in versus online orders based on urgency, customer requirements, and timing.</li>
+                        <li>Document print specifications to ensure seamless project handoff to team members.</li>
+                        <li>Operate print software and machinery and troubleshoot and fix jams.</li>
+                    </ul>
+                </div>
+                <div class="work">
+                    <h5>Sales Associate</h5>
+                    <ul>
+                        <li>Stock merchandise according to schematic mock-ups and visual standards.</li>
+                        <li>Use pricing and safety requirements to inform inventory placement.</li>
+                    </ul>
+                </div>
             </div>
         </section>
         <form>
@@ -48,7 +69,7 @@
             <label for="phone">Phone Number: </label>
             <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="(000)000-0000">
             <br>
-            <input type="submit" value="Submit">
+            <button type="submit">Submit</button>
         </form>
 		<section>
             <h3>Contact Information</h3>
