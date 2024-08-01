@@ -57,10 +57,12 @@ img {
 }
 
 form {
-    padding: 20px;
-    border: dashed var(--secondary-color) 1px;
-    margin: 20px 0px;
     width: 100%;
+    margin: 20px 0px;
+    padding: 20px;
+    border: dashed #81a6c4 1px;
+    border-radius: 10px;
+    background-color: #F6F6F6;
 }
 
 label {
@@ -68,17 +70,16 @@ label {
 }
 
 input {
-    border: 1px solid var(--secondary-color);
     width: 100%;
+    border: 1px solid var(--background-color);
+    border-radius: 3px;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    transition: all 200ms ease-in-out;
 }
 
-button {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 0.5em 1em;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
+input:hover {
+    border: dashed #9fb4c6 1px;
 }
 
 footer {
@@ -134,8 +135,32 @@ footer a:hover {
     grid-row: 3 / 4;
 }
 
+.submitHolder {
+    display: flex;
+    justify-content: center;
+}
+
 #profilePic {
     width: 100%;
+}
+
+#submitButton {
+    width: 30%;
+    min-width: fit-content;
+    margin-top: 15px;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: solid var(--secondary-color) 1px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+#submitButton:hover {
+    background-color: var(--background-color);
+    border: solid var(--secondary-color) 1px;
+    color: var(--secondary-color);
 }
 
 @media (max-width: 767px) {
