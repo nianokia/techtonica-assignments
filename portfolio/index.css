@@ -47,6 +47,10 @@ h1 {
     font-size: 50px;
 }
 
+p {
+    text-align: justify;
+}
+
 h3 {
     font-family: var(--accent-font);
     letter-spacing: 2px;
@@ -163,7 +167,13 @@ footer a:hover {
     color: var(--secondary-color);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 450px) {
+    #profilePic {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
     .nameAndTitle {
         text-align: start;
         margin-left: 0px;
@@ -173,8 +183,16 @@ footer a:hover {
         display: block;
     }
 
+    .projectPicHolder {
+        text-align: center;
+    }
+
     .projectPic {
         width: 60%;
+    }
+
+    .projectInfo h4 {
+        margin-top: 20px;
     }
 
     #profilePic {
