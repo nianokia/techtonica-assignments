@@ -2,7 +2,7 @@ html body {
     background-color: #D6E4F0;
 }
 
-.container-fluid {
+.containerAllContent {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto auto auto;
@@ -103,4 +103,47 @@ footer a:hover {
 
 #profilePic {
     width: 100%;
+}
+
+@media (max-width: 767px) {
+    .nameAndTitle {
+        text-align: start;
+        margin-left: 0px;
+    }
+
+    .project {
+        display: block;
+    }
+
+    .projectPic {
+        width: 60%;
+    }
+
+    #profilePic {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+    header {
+        text-align: center;
+    }
+
+    .containerAllContent {
+        display: block;
+    }
+
+    .nameAndTitle {
+        text-align: start;
+        margin-left: 60px;
+    }
+
+    .codingExp,
+    .workExp {
+        margin-left: 0px;
+    }
+
+    #profilePic {
+        width: 40%;
+    }
 }
