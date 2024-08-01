@@ -1,5 +1,17 @@
+:root {
+    --heading-font: "Rubik", sans-serif;
+    --secondary-font: "Red Hat Display", sans-serif;
+    --accent-font: "Poppins", sans-serif;
+    --default-font: "Nunito", sans-serif;
+
+    --background-color: #D6E4F0;
+    --primary-color: #1B3973;
+    --secondary-color: #0A1338;
+    --accent-color: #E5861B;
+}
+
 html body {
-    background-color: #D6E4F0;
+    background-color: var(--background-color);
 }
 
 .containerAllContent {
@@ -11,6 +23,7 @@ html body {
     margin: 20px auto;
     max-width: 1600px;
     color: #0A1338;
+    font-family: var(--default-font);
 }
 
 header {
@@ -22,8 +35,21 @@ header {
     column-gap: 40px;
 }
 
+h1, h2 {
+    font-family: var(--heading-font);
+}
+
+h4, h5, h6 {
+    font-family: var(--secondary-font);
+}
+
 h1 {
     font-size: 50px;
+}
+
+h3 {
+    font-family: var(--accent-font);
+    letter-spacing: 2px;
 }
 
 img {
@@ -32,7 +58,7 @@ img {
 
 form {
     padding: 20px;
-    border: dashed #0A1338 1px;
+    border: dashed var(--secondary-color) 1px;
     margin: 20px 0px;
     width: 100%;
 }
@@ -42,12 +68,12 @@ label {
 }
 
 input {
-    border: 1px solid #0A1338;
+    border: 1px solid var(--secondary-color);
     width: 100%;
 }
 
 button {
-    background-color: #0A1338;
+    background-color: var(--secondary-color);
     color: white;
     padding: 0.5em 1em;
     border: none;
@@ -60,11 +86,12 @@ footer {
 }
 
 footer a {
-    color: #1B3973;
+    color: var(--primary-color);
+    font-family: "Nunito", sans-serif;
 }
 
 footer a:hover {
-    color: #E5861B;
+    color: var(--accent-color);
     transition: all 200ms ease-in-out;
 }
 
@@ -95,6 +122,12 @@ footer a:hover {
 
 .projectPic {
     width: 100%;
+}
+
+.companyAndDates {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
 }
 
 .contactForm {
@@ -147,3 +180,27 @@ footer a:hover {
         width: 40%;
     }
 }
+
+/* 
+font-family: "Aclonica", sans-serif;
+font-family: "Julius Sans One", sans-serif;
+font-family: "Michroma", sans-serif;
+font-family: "Poiret One", sans-serif;
+font-family: "Fugaz One", sans-serif;                                       i like for h1, h2
+font-family: "Audiowide", sans-serif;
+font-family: "Rubik", sans-serif;           // font-weight: 300-900         i also like
+font-family: "Silkscreen", sans-serif;      // font-weight: 400, 700
+font-family: "Nunito", sans-serif;          // font-weight: 200-1000
+font-family: "Raleway", sans-serif;         // font-weight: 100-900
+font-family: "Poppins", sans-serif;         // font-weight: 100-900 // font-style: normal, italic       i like
+font-family: "Montserrat", sans-serif;      // font-weight: 100-900
+
+font-family: "Azeret Mono", monospace;      // font-weight: 100-900
+font-family: "Saira", sans-serif;           // font-weight: 100-900
+font-family: "Russo One", sans-serif;       // font-weight: 400             maybe project & contact info
+font-family: "Rowdies", sans-serif;         // font-weight: 300, 400, 700   maybe with letter-spacing
+font-family: "Play", sans-serif;            // font-weight: 400, 700
+font-family: "Comfortaa", sans-serif;       // font-weight: 300-700         maybe exp & other titles
+font-family: "Red Hat Display", sans-serif; // font-weight: 300-900         maybe
+font-family: "Chakra Petch", sans-serif;    // font-weight: 300-700 // font-style: normal, italic
+*/
