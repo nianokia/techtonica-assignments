@@ -19,23 +19,23 @@
                 <h2>Software Engineer</h2>
             </div>
             <div>
-                <img src="/profile-pic.JPG" alt="headshot of Nia Wright">
+                <img src="/profile-pic.JPG" id="profilePic" alt="headshot of Nia Wright">
             </div>
 		</header>
-        <section>
-            <div class="aboutMe">
-                <h3>About Me</h3>
-                <p>
-                    I'm a Software Engineer coming from a non-traditional background, specializing in languages. I use this to my
-                    advantage when tackling new programming languages. I primarily work with HTML, CSS, and JavaScript! In my spare
-                    time, I love reading manga and eating breakfast.
-                </p>
-            </div>
-            <div class="codingExp">
-                <h3>Coding Experience</h3>
-                <div class="projects">
-                    <div>
-                        <a href="https://nw-react-weather-app.netlify.app/"><img src="/weather-app.png"/></a>
+        <section class="aboutMe">
+            <h3>About Me</h3>
+            <p>
+                I'm a Software Engineer coming from a non-traditional background, specializing in languages. I use this to my
+                advantage when tackling new programming languages. I primarily work with HTML, CSS, and JavaScript! In my spare
+                time, I love reading manga and eating breakfast.
+            </p>
+        </section>
+        <section class="codingExp">
+            <h3 class="expTitle">Coding Experience</h3>
+            <div class="projects">
+                <div class="project">
+                    <a href="https://nw-react-weather-app.netlify.app/"><img src="/weather-app.png" class="projectPic"/></a>
+                    <div class="projectInfo">
                         <h4>Weather App</h4>
                         <p>
                             I built this project with <strong>React.js</strong> using a
@@ -47,8 +47,10 @@
                             <strong>responsive on mobile</strong> devices.
                         </p>
                     </div>
-                    <div>
-                        <a href="https://nw-dictionary-app.netlify.app/"><img src="/dictionary-app.png" /></a>
+                </div>
+                <div class="project">
+                    <a href="https://nw-dictionary-app.netlify.app/"><img src="/dictionary-app.png" class="projectPic" /></a>
+                    <div class="projectInfo">
                         <h4>Dictionary App</h4>
                         <p>
                             I built this responsive dictionary app with
@@ -60,8 +62,10 @@
                             dictionary.
                         </p>
                     </div>
-                    <div>
-                        <a href="https://nw-osaka-travel-page.netlify.app/"><img src="/osaka-lp.png" /></a>
+                </div>
+                <div class="project">
+                    <a href="https://nw-osaka-travel-page.netlify.app/"><img src="/osaka-lp.png" class="projectPic" /></a>
+                    <div class="projectInfo">
                         <h4>Travel Landing Page</h4>
                         <p>
                             I created this landing page to introduce one of my favorite
@@ -74,48 +78,47 @@
                     </div>
                 </div>
             </div>
-            <div class="workExp">
-                <h3>Work Experience</h3>
-                <div class="work">
-                    <h5>Services Advisor</h5>
-                    <div class="companyAndDates">
-                        <span>Office Depot</span><span>Jan 2024 - Jul 2024</span>
-                    </div>
-                    <ul>
-                        <li>Triage online order tickets, create, print, and edit customer files, and deliver products that meet customer
-                            and company
-                            expectations.</li>
-                        <li>Prioritize walk-in versus online orders based on urgency, customer requirements, and timing.</li>
-                        <li>Document print specifications to ensure seamless project handoff to team members.</li>
-                        <li>Operate print software and machinery and troubleshoot and fix jams.</li>
-                    </ul>
+        </section>
+        <section class="workExp">
+            <h3 class="expTitle">Work Experience</h3>
+            <div class="work">
+                <h5>Services Advisor</h5>
+                <div class="companyAndDates">
+                    <span>Office Depot</span><span>Jan 2024 - Jul 2024</span>
                 </div>
-                <div class="work">
-                    <h5>Sales Associate</h5>
-                    <div class="companyAndDates">
-                        <span>Nordstrom Rack</span><span>Oct 2021 - Dec 2022</span>
-                    </div>
-                    <ul>
-                        <li>Stock merchandise according to schematic mock-ups and visual standards.</li>
-                        <li>Use pricing and safety requirements to inform inventory placement.</li>
-                    </ul>
+                <ul>
+                    <li>Triage online order tickets, create, print, and edit customer files, and deliver products that meet customer
+                        and company
+                        expectations.</li>
+                    <li>Prioritize walk-in versus online orders based on urgency, customer requirements, and timing.</li>
+                    <li>Document print specifications to ensure seamless project handoff to team members.</li>
+                    <li>Operate print software and machinery and troubleshoot and fix jams.</li>
+                </ul>
+            </div>
+            <div class="work">
+                <h5>Sales Associate</h5>
+                <div class="companyAndDates">
+                    <span>Nordstrom Rack</span><span>Oct 2021 - Dec 2022</span>
                 </div>
+                <ul>
+                    <li>Stock merchandise according to schematic mock-ups and visual standards.</li>
+                    <li>Use pricing and safety requirements to inform inventory placement.</li>
+                </ul>
             </div>
         </section>
-        <form>
-            <label for="contactName">Name: </label>
-            <input type="text" name="contactName" id="contactName" placeholder="Jane Doe" required>
-            <br>
-            <label for="email">Email: </label>
-            <input type="email" name="email" id="email" placeholder="example@example.com" required>
-            <br>
-            <label for="phone">Phone Number: </label>
-            <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="(000)000-0000">
-            <br>
-            <button type="submit">Submit</button>
-        </form>
-		<section>
-            
+		<section class="contactForm">
+            <form>
+                <label for="contactName">Name: </label>
+                <input type="text" name="contactName" id="contactName" placeholder="Jane Doe" required>
+                <br>
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" placeholder="example@example.com" required>
+                <br>
+                <label for="phone">Phone Number: </label>
+                <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="(000)000-0000">
+                <br>
+                <button type="submit">Submit</button>
+            </form>
         </section>
 		<footer>
             <h5>Contact Information</h5>
