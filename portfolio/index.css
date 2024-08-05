@@ -10,6 +10,8 @@
     --accent-color: #E5861B;
 }
 
+/* CSS organized from top to bottom of the page and grouped by tags, classes, and ids */
+
 html body {
     background-color: var(--background-color);
 }
@@ -100,6 +102,8 @@ footer a:hover {
     transition: all 200ms ease-in-out;
 }
 
+/* ---- CLASSES ---- */
+
 .aboutMe {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
@@ -144,6 +148,8 @@ footer a:hover {
     justify-content: center;
 }
 
+/* ---- ID'S ---- */
+
 #profilePic {
     width: 100%;
 }
@@ -166,6 +172,8 @@ footer a:hover {
     border: solid var(--secondary-color) 1px;
     color: var(--secondary-color);
 }
+
+/* ---- MEDIA QUERIES ---- */
 
 @media (max-width: 450px) {
     #profilePic {
