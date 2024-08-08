@@ -1,3 +1,74 @@
 html body {
     background-color: blanchedalmond;
 }
+
+.container {
+    margin: 100px auto;
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: "Grandstander", cursive;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-bottom: 80px;
+}
+
+span, button {
+    font-family: "Short Stack", cursive;
+}
+
+button {
+    font-size: 1.2em;
+}
+
+.coinHolder {
+    display: block;
+    margin: 30px;
+}
+
+/* .flexButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+} */
+
+.buttonHolder {
+    margin: auto;
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#startCoin {
+    visibility: visible;
+    padding: 60px 5px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: chocolate;
+}
+
+#waffle {
+    visibility: hidden;
+}
+
+#pancake {
+    visibility: hidden;
+}
+
+/*
+font-family: "Grandstander", cursive;
+font-family: "Mali", cursive;
+font-family: "Short Stack", cursive;
+font-family: "Syncopate", sans-serif;  NO
+font-family: "Itim", cursive;
+font-family: "Bungee", sans-serif; NO
+font-family: "Gloria Hallelujah", cursive;
+font-family: "Titan One", sans-serif;
+*/
