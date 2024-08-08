@@ -6,15 +6,26 @@
 //     4. show the result of the coin toss by displaying either waffle or pancake
 //     5. include a replay or start over button so user can keep tossing
 
+let flipButton = document.querySelector("#flip");
+
+flipButton.addEventListener("click", userClick);
+
 // function to handle user click
 function userClick() {
-    // define var chosenside
-    let chosenSide = "";
-    // use random function to pick a side with randint(0, 1)
+    // define var flippedCoin
+    let flippedCoin = document.querySelector("#startCoin");
+
+    // use Math random and round function to pick a side
     // define what displays when 0 or 1 is chosen
     // if 0 then show waffle, if 1 then show pancake
+    let pickASide = Math.round(Math.random()) === 0 ? "waffle" : "pancake";
 
-    // return chosenSide which is either 'waffle' or 'pancake'
+    // return result of pickASide in flippedCoin 'waffle' or 'pancake'
+    if (pickASide === "waffle") {
+        flippedCoin.innerHTML = "Waffle";
+    } else {
+        flippedCoin.innerHTML = "Pancake";
+    }
 }
 
 // function gameRestart to handle user clicking restart button
