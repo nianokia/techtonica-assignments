@@ -13,7 +13,7 @@ flipButton.addEventListener("click", userClick);
 // function to handle user click
 function userClick() {
     // define var flippedCoin
-    let flippedCoin = document.querySelector("#startCoin");
+    let flippedCoin = document.querySelector("#coin");
 
     // use Math random and round function to pick a side
     // define what displays when 0 or 1 is chosen
@@ -22,9 +22,9 @@ function userClick() {
 
     // return result of pickASide in flippedCoin 'waffle' or 'pancake'
     if (pickASide === "waffle") {
-        flippedCoin.innerHTML = "Waffle";
+        flippedCoin.style.backgroundImage = "url('./pictures/waffle.png')";
     } else {
-        flippedCoin.innerHTML = "Pancake";
+        flippedCoin.style.backgroundImage = "url('./pictures/pancake.png')";
     }
 }
 
