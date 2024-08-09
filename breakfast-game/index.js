@@ -6,29 +6,105 @@
 //     4. show the result of the coin toss by displaying either waffle or pancake
 //     5. include a replay or start over button so user can keep tossing
 
-let flipButton = document.querySelector("#flip");
+const game = () => {
+    let userScore = 0;
+    let computerScore = 0;
+    let movesLeftText = 3;
 
-flipButton.addEventListener("click", userClick);
+    const playGame = () => {
+        const waffleChoice = document.querySelector("#waffleChoice");
+        const pancakeChoice = document.querySelector("#pancakeChoice");
+        const userChoices = [waffleChoice, pancakeChoice];
+        const coin = document.querySelector("#coin");
 
-// function to handle user click
-function userClick() {
-    // define var flippedCoin
-    let flippedCoin = document.querySelector("#coin");
+        let userSelection = "";
+        const movesLeft = document.querySelector("#movesLeft");
+        const restartButton = document.querySelector("#restart");
 
-    // use Math random and round function to pick a side
-    // define what displays when 0 or 1 is chosen
-    // if 0 then show waffle, if 1 then show pancake
-    let pickASide = Math.round(Math.random()) === 0 ? "waffle" : "pancake";
+        // add listener for user click on waffle or pancake button
+        userChoices.forEach(choice => {
+            // function to handle user click
+            choice.addEventListener("click", () => {
+                
+            userSelection = choice.id;
 
-    // return result of pickASide in flippedCoin 'waffle' or 'pancake'
-    if (pickASide === "waffle") {
-        flippedCoin.style.backgroundImage = "url('./pictures/waffle.png')";
-    } else {
-        flippedCoin.style.backgroundImage = "url('./pictures/pancake.png')";
+            // use Math random & round to pick 0 or 1
+            // if 0 then show waffle, if 1 then show pancake
+            const sideLandedOn = Math.round(Math.random()) === 0 ? "waffleChoice" : "pancakeChoice";
+
+            // display picture of side landed on; 'waffle' or 'pancake'
+            if (sideLandedOn === "waffleChoice") {
+                coin.style.backgroundImage = "url('./pictures/waffle.png')";
+            } else {
+                coin.style.backgroundImage = "url('./pictures/pancake.png')";
+            }
+
+            winner(userSelection, sideLandedOn)
+
+                if (movesLeftText > 1) {
+                    movesLeftText--;
+                    movesLeft.innerHTML = `Moves Left: ${movesLeftText}`;
+                } else {
+                    movesLeftText--;
+                    movesLeft.innerHTML = `Moves Left: ${movesLeftText}`;
+                    gameOver();
+                }
+            });
+        });
+
+        // reload game to show starting breakfast coin image
+        restartButton.addEventListener("click", () => {
+            window.location.reload();
+        });
+    };
+
+    const winner = (userChoice, computerChoice) => {
+        let userScoreBoard = document.querySelector("#userScoreBoard");
+        let computerScoreBoard = document.querySelector("#computerScoreBoard");
+        let winnerResults = document.querySelector("summary");
+
+        console.log("userChoice: ", userChoice);
+        console.log("computerChoice: ", computerChoice);
+
+        if (userChoice === computerChoice) {
+            userScore++;
+            winnerResults.innerHTML = "You won!";
+        } else {
+            computerScore++;
+            winnerResults.innerHTML = "You lost.";
+        }
+
+        userScoreBoard.innerHTML = userScore;
+        computerScoreBoard.innerHTML = computerScore;
     }
-}
 
-// function gameRestart to handle user clicking restart button
-function gameRestart() {
-    // shows starting breakfast div and hides waffle & pancake div
-}
+    // function gameRestart to handle user clicking restart button
+    const gameOver = () => {
+        const gameOverMessage = document.querySelector("h2");
+        gameOverMessage.innerHTML = "Game Over :("
+        let winnerResults = document.querySelector("summary");
+
+        if (userScore > computerScore) {
+            winnerResults.innerHTML = "Hooray, you win!!"
+        } else {
+            winnerResults.innerHTML = "Sorry, you lost."
+        }
+    };
+
+    playGame();
+};
+
+game();
+
+
+
+// // use Math random & round to pick 0 or 1
+// // if 0 then show waffle, if 1 then show pancake
+// const sideLandedOn = Math.round(Math.random()) === 0 ? "waffle" : "pancake";
+
+// // display picture of side landed on; 'waffle' or 'pancake'
+// if (sideLandedOn === "waffle") {
+//     coin.style.backgroundImage = "url('./pictures/waffle.png')";
+// } else {
+//     coin.style.backgroundImage = "url('./pictures/pancake.png')";
+// }
