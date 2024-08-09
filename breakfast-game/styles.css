@@ -9,6 +9,7 @@ html body {
 
 h1, h2 {
     font-family: "Grandstander", cursive;
+    color: #3a230a;
 }
 
 h1 {
@@ -17,7 +18,7 @@ h1 {
 
 h2 {
     font-size: 2.2em;
-    margin-bottom: 80px;
+    margin-bottom: 130px;
 }
 
 span, button {
@@ -26,40 +27,40 @@ span, button {
 
 button {
     font-size: 1.2em;
+    padding: 10px 20px;
+    border: 1px solid #3a230a;
+    border-radius: 5px;
+    background-color: #da8528;
+    color: #3a230a;
+    transition: all 200ms ease-in-out;
+}
+
+button:hover {
+    background-color: chocolate;
+    color: floralwhite;
+    border: 1px solid #3a230a;
 }
 
 .coinHolder {
-    display: block;
+    /* display: block; */
     margin: 30px;
 }
 
-/* .flexButton {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-} */
-
 .buttonHolder {
     margin: auto;
-    margin-top: 90px;
+    margin-top: 140px;
     display: flex;
     justify-content: space-around;
 }
 
-#startCoin {
+#coin {
     visibility: visible;
-    padding: 60px 5px;
-    border: 1px solid black;
+    padding: 90px 100px;
+    /* border: 1px solid black; */
     border-radius: 50%;
-    background-color: chocolate;
-}
-
-#waffle {
-    visibility: hidden;
-}
-
-#pancake {
-    visibility: hidden;
+    background-image: url("./pictures/breakfast.jpg");
+    background-size: cover;
+    /* background-color: chocolate; */
 }
 
 /*
