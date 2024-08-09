@@ -30,7 +30,7 @@ h2 {
     font-size: 2.2em;
 }
 
-h3, button {
+h3, button, p {
     font-family: var(--default-font);
 }
 
