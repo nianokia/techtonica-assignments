@@ -16,7 +16,7 @@ A game to decide whether you'll have waffles or pancakes for breakfast.
     2. Make 3 guesses
     3. Click "restart" button to restart the game
 
-![BreakfastGame](/pictures/BreakfastGameGif.gif "Breakfast Game")
+![](/pictures/BreakfastGameGif.gif)
 
 ## Future Ideas
 - Include a table to show the history of their coin flips
