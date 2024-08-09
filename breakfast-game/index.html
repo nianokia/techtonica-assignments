@@ -15,17 +15,30 @@
         <header>
             <h1>Breakfast Game</h1>
             <h2>Pick a Side</h2>
+            <h3 id="movesLeft">Moves Left: 3</h3>
         </header>
         <section class="choiceHolder">
-            <button class="choiceButton">Waffle</button> or
-            <button class="choiceButton">Pancake</button>
+            <button class="choiceButton" id="waffleChoice">Waffle</button> or
+            <button class="choiceButton" id="pancakeChoice">Pancake</button>
         </section>
         <section class="coinHolder">
             <span id="coin"></span>
         </section>
-        <section class="buttonHolder">
-            <button id="flip">Flip</button>
+        <section class="restartHolder">
             <button id="restart">Restart</button>
+        </section>
+        <section class="results">
+            <section class="scoreBoard">
+                <span class="userScoreHolder">
+                    <h3>User Score</h3>
+                    <p id="userScoreBoard">0</p>
+                </span>
+                <span class="computerScoreHolder">
+                    <h3>Computer Score</h3>
+                    <p id="computerScoreBoard">0</p>
+                </span>
+            </section>
+            <summary></summary>
         </section>
     </div>
 </body>

@@ -18,7 +18,10 @@ h1 {
 
 h2 {
     font-size: 2.2em;
-    margin-bottom: 130px;
+}
+
+h3 {
+    font-family: "Short Stack", cursive;
 }
 
 span, button {
@@ -27,9 +30,9 @@ span, button {
 
 button {
     font-size: 1.2em;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: 1px solid #3a230a;
-    border-radius: 5px;
+    border-radius: 35px;
     background-color: #da8528;
     color: #3a230a;
     transition: all 200ms ease-in-out;
@@ -41,26 +44,61 @@ button:hover {
     border: 1px solid #3a230a;
 }
 
-.coinHolder {
-    /* display: block; */
-    margin: 30px;
-}
-
-.buttonHolder {
-    margin: auto;
-    margin-top: 140px;
+.choiceHolder {
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    width: 500px;
+    font-family: "Short Stack", cursive;
+    color: #3a230a;
+    margin-bottom: 30px;
+}
+
+.choiceButton {
+    width: 140px;
+    text-align: center;
+}
+
+.coinHolder {
+    padding: 90px 100px;
+}
+
+.restartHolder {
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+    text-align: center;
+}
+
+.scoreBoard {
+    display: flex;
+    margin: 0 auto;
+    width: 500px;
+    justify-content: space-between;
+    color: #3a230a;
+}
+
+.scoreBoard h3 {
+    font-size: 1.5em;
+}
+
+.scoreBoard p {
+    font-size: 2em;
 }
 
 #coin {
     visibility: visible;
     padding: 90px 100px;
-    /* border: 1px solid black; */
     border-radius: 50%;
     background-image: url("./pictures/breakfast.jpg");
     background-size: cover;
-    /* background-color: chocolate; */
+}
+
+#flip, #restart {
+    width: 135px;
+    text-align: center;
 }
 
 /*
