@@ -1,15 +1,25 @@
+:root {
+    --heading-font: "Grandstander", cursive;
+    --default-font: "Short Stack", cursive;
+
+    --background-color: blanchedalmond;
+    --primary-color: #da8528;
+    --secondary-color: #3a230a;
+    --accent-color: floralwhite;
+}
+
 html body {
-    background-color: blanchedalmond;
+    background-color: var(--background-color);
 }
 
 .container {
-    margin: 100px auto;
+    margin: 70px auto;
     text-align: center;
 }
 
 h1, h2 {
-    font-family: "Grandstander", cursive;
-    color: #3a230a;
+    font-family: var(--heading-font);
+    color: var(--secondary-color);
 }
 
 h1 {
@@ -20,28 +30,28 @@ h2 {
     font-size: 2.2em;
 }
 
-h3 {
-    font-family: "Short Stack", cursive;
+h3, button {
+    font-family: var(--default-font);
 }
 
-span, button {
-    font-family: "Short Stack", cursive;
+span {
+    font-family: var(--heading-font);
 }
 
 button {
     font-size: 1.2em;
     padding: 12px 20px;
-    border: 1px solid #3a230a;
+    border: 1px solid var(--secondary-color);
     border-radius: 35px;
-    background-color: #da8528;
-    color: #3a230a;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     transition: all 200ms ease-in-out;
 }
 
 button:hover {
     background-color: chocolate;
-    color: floralwhite;
-    border: 1px solid #3a230a;
+    color: var(--accent-color);
+    border: 1px solid var(--secondary-color);
 }
 
 .choiceHolder {
@@ -50,8 +60,8 @@ button:hover {
     justify-content: space-around;
     align-items: center;
     width: 500px;
-    font-family: "Short Stack", cursive;
-    color: #3a230a;
+    font-family: var(--default-font);
+    color: var(--secondary-color);
     margin-bottom: 30px;
 }
 
@@ -75,9 +85,13 @@ button:hover {
 .scoreBoard {
     display: flex;
     margin: 0 auto;
+    padding: 0 35px;
     width: 500px;
     justify-content: space-between;
-    color: #3a230a;
+    border-radius: 35px;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    font-family: var(--default-font);
 }
 
 .scoreBoard h3 {
@@ -96,18 +110,8 @@ button:hover {
     background-size: cover;
 }
 
-#flip, #restart {
-    width: 135px;
+#restart {
+    padding: 15px;
+    width: 70px;
     text-align: center;
 }
-
-/*
-font-family: "Grandstander", cursive;
-font-family: "Mali", cursive;
-font-family: "Short Stack", cursive;
-font-family: "Syncopate", sans-serif;  NO
-font-family: "Itim", cursive;
-font-family: "Bungee", sans-serif; NO
-font-family: "Gloria Hallelujah", cursive;
-font-family: "Titan One", sans-serif;
-*/
