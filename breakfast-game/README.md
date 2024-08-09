@@ -1,22 +1,22 @@
 # Coin Toss
 A game to decide whether you'll have waffles or pancakes for breakfast.
 
-## Instructions
-Click the breakfast coin to flip it.
-Click the restart button to flip the coin again.
-
 ## Technologies
 - HTML
 - CSS
 - JavaScript
 
-## PSEUDOCODE
-    1. Have 2 sides of a coin; waffle & pancake
-    2. give an id to each side of the coin
-    3. use DOM to choose a side of the coin
-        - the percentage of waffle / pancake win should be 50 / 50
-    4. show the result of the coin toss by displaying either waffle or pancake
-    5. include a replay or start over button so user can keep tossing
+## INSTRUCTIONS TO PLAY
+    1. Fork repository
+    2. Clone repository onto local machine
+    3. Open index.html in browser
+
+## HOW TO PLAY
+    1. Guess which side the coin will flip to by clicking "Waffle" or "Pancake"
+    2. Make 3 guesses
+    3. Click "restart" button to restart the game
+
+![BreakfastGame](/pictures/BreakfastGameGif.gif "Breakfast Game")
 
 ## Future Ideas
 - Include a table to show the history of their coin flips
