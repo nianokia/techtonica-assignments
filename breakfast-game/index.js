@@ -7,6 +7,7 @@
 //     5. include a replay or start over button so user can keep tossing
 
 const game = () => {
+    // initialize all counter variables
     let userScore = 0;
     let computerScore = 0;
     let movesLeftText = 3;
@@ -25,28 +26,25 @@ const game = () => {
         userChoices.forEach(choice => {
             // function to handle user click
             choice.addEventListener("click", () => {
-                
-            userSelection = choice.id;
+                userSelection = choice.id;
 
-            // use Math random & round to pick 0 or 1
-            // if 0 then show waffle, if 1 then show pancake
-            const sideLandedOn = Math.round(Math.random()) === 0 ? "waffleChoice" : "pancakeChoice";
+                // determine side landed on with using math random then rounding it to the nearest integer, if 0 then show waffle, if 1 then show pancake
+                const sideLandedOn = Math.round(Math.random()) === 0 ? "waffleChoice" : "pancakeChoice";
 
-            // display picture of side landed on; 'waffle' or 'pancake'
-            if (sideLandedOn === "waffleChoice") {
-                coin.style.backgroundImage = "url('./pictures/waffle.png')";
-            } else {
-                coin.style.backgroundImage = "url('./pictures/pancake.png')";
-            }
+                // display picture of side landed on; 'waffle' or 'pancake'
+                sideLandedOn === "waffleChoice" ? coin.style.backgroundImage = "url('./pictures/waffle.png')" : coin.style.backgroundImage = "url('./pictures/pancake.png')";
 
-            winner(userSelection, sideLandedOn)
+                // call function to display text for if user won or lost
+                winner(userSelection, sideLandedOn)
 
                 if (movesLeftText > 1) {
                     movesLeftText--;
                     movesLeft.innerHTML = `Moves Left: ${movesLeftText}`;
                 } else {
+                    // decrement counter one more time to display accurate movesLeftText data
                     movesLeftText--;
                     movesLeft.innerHTML = `Moves Left: ${movesLeftText}`;
+                    // call function to display gameOver message & winner results
                     gameOver();
                 }
             });
@@ -63,9 +61,13 @@ const game = () => {
         let computerScoreBoard = document.querySelector("#computerScoreBoard");
         let winnerResults = document.querySelector("summary");
 
-        console.log("userChoice: ", userChoice);
-        console.log("computerChoice: ", computerChoice);
+        // style winnerResults
+        winnerResults.style.fontFamily = "'Grandstander', cursive";
+        winnerResults.style.fontSize = "2em";
+        winnerResults.style.color = "#3a230a";
+        winnerResults.style.marginTop = "30px";
 
+        // what to show when user wins or loses a round
         if (userChoice === computerChoice) {
             userScore++;
             winnerResults.innerHTML = "You won!";
@@ -74,6 +76,7 @@ const game = () => {
             winnerResults.innerHTML = "You lost.";
         }
 
+        // update scoreBoard with correct score
         userScoreBoard.innerHTML = userScore;
         computerScoreBoard.innerHTML = computerScore;
     }
@@ -84,10 +87,11 @@ const game = () => {
         gameOverMessage.innerHTML = "Game Over :("
         let winnerResults = document.querySelector("summary");
 
+        // what to show if user wins or loses
         if (userScore > computerScore) {
-            winnerResults.innerHTML = "Hooray, you win!!"
+            winnerResults.innerHTML = "Hooray, you win!!<br/><span>Enjoy  your breakfast! <i class='fa-solid fa-utensils'></i></span>"
         } else {
-            winnerResults.innerHTML = "Sorry, you lost."
+            winnerResults.innerHTML = "Sorry, you lost.<br/><span>No breakfast for you <i class='fa-regular fa-face-frown'></i></span>"
         }
     };
 
@@ -95,16 +99,3 @@ const game = () => {
 };
 
 game();
-
-
-
-// // use Math random & round to pick 0 or 1
-// // if 0 then show waffle, if 1 then show pancake
-// const sideLandedOn = Math.round(Math.random()) === 0 ? "waffle" : "pancake";
-
-// // display picture of side landed on; 'waffle' or 'pancake'
-// if (sideLandedOn === "waffle") {
-//     coin.style.backgroundImage = "url('./pictures/waffle.png')";
-// } else {
-//     coin.style.backgroundImage = "url('./pictures/pancake.png')";
-// }
