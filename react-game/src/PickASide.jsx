@@ -4,11 +4,11 @@ import Restart from './Restart'
 import ScoreBoard from './ScoreBoard'
 
 export default function PickASide() {
-    // setChoice, setMoves, setGameOver
+    // setChoice, setRandomSide, setMoves, setImage, setGameOver
     const [choice, setChoice] = useState(null);
     const [randomSide, setRandomSide] = useState("");
     const [moves, setMoves] = useState(3);
-    const [image, setImage] = useState("")
+    const [image, setImage] = useState("");
     const [gameOver, setGameOver] = useState(null);
 
     const determineSideFlipped = () => {
@@ -16,11 +16,12 @@ export default function PickASide() {
         setRandomSide(Math.round(Math.random()) === 0 ? "waffle" : "pancake");
 
         // display picture of side landed on; 'waffle' or 'pancake'
-        setImage(`url('./pictures/${sideLandedOn}.png')`);
+        setImage(`url('./pictures/${randomSide}.png')`);
         // sideLandedOn === "waffle" ? setImage("url('./pictures/waffle.png')") : setImage("url('./pictures/pancake.png')");
     }
 
     const handleChoice = (event) => {
+        event.preventDefault();
         if (event.target.value.id === "waffle") {
             setChoice("waffle");
         } else {
@@ -29,15 +30,15 @@ export default function PickASide() {
         setMoves(moves - 1);
         determineSideFlipped;
     }
-  
 
+    
     return(
         <div className="PickASide">
             <h2>Pick a Side</h2>
             <h3 id="moves">Moves Left: {moves}</h3>
             <section>
-                <button id="waffle" onClick={handleChoice}>Waffle</button> or
-                <button id="pancake" onClick={handleChoice}>Pancake</button>
+                <button id="waffle" onClick={handleChoice} disabled={moves <= 0}>Waffle</button> or
+                <button id="pancake" onClick={handleChoice} disabled={moves <= 0}>Pancake</button>
             </section>
             <CoinFlip bgImage={image}/>
             <Restart />
