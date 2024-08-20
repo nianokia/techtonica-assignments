@@ -71,10 +71,6 @@ button:hover {
     text-align: center;
 }
 
-.CoinFlip {
-    padding: 90px 100px;
-}
-
 .Restart {
     margin: 40px auto;
     display: flex;
@@ -112,10 +108,8 @@ button:hover {
 
 #coin {
     visibility: visible;
-    padding: 90px 100px;
+    width: 250px;
     border-radius: 50%;
-    background-image: url("./pictures/breakfast.jpg");
-    background-size: cover;
 }
 
 #restartButton {

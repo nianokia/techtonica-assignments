@@ -1,35 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import Outcome from "./Outcome";
 
 export default function ScoreBoard(props) {
-    // setWinner, setUserScore, setCompScore
-    const [winner, setWinner] = useState(null);
-    const [userScore, setUserScore] = useState(0);
-    const [compScore, setCompScore] = useState(0);
-
-    const handleWinner = () => {
-        if (props.userChoice === props.randomSide) {
-            setUserScore(userScore + 1);
-            setWinner("user");
-        } else {
-            setCompScore(compScore + 1);
-            setWinner("computer");
-        }
-    }
-
-    handleWinner;
-
     return (
-        <div className="ScoreBoard">
-            <span className="userScoreBoard">
-                <h3>User Score</h3>
-                <p id="userScore">{userScore}</p>
-            </span>
-            <span className="compScoreBoard">
-                <h3>Computer Score</h3>
-                <p id="compScore">{compScore}</p>
-            </span>
-            <Outcome winner={winner}/>
-        </div>
+        <>
+            <div className="ScoreBoard">
+                <span className="userScoreBoard">
+                    <h3>User Score</h3>
+                    <p id="userScore">{props.userScore}</p>
+                </span>
+                <span className="compScoreBoard">
+                    <h3>Computer Score</h3>
+                    <p id="compScore">{props.compScore}</p>
+                </span>
+            </div>
+            <Outcome 
+                // If moves = 0, set outcome to winner/loser message
+                outcome={props.moves === 0 ? (props.userScore > props.compScore ? "You won! Time to eat!" : "Sorry, no breakfast for you :(") : null}
+                isGameOver={props.moves === 0}
+             />
+        </>
     )
 }
