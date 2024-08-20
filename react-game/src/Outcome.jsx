@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Outcome(props) {
-    // set Outcome
-    const [outcome, setOutcome] = useState("");
-
     // set outcome message based off winner
-    if (props.winner === "user") {
-        setOutcome("You won!");
-    } else {
-        setOutcome("You lost.");
-    }
+    // FOR SOME REASON THIS CODE BLOCK IS BREAKING THE PAGE
+    // if (props.winner === "user") {
+    //     setOutcome("You won!");
+    // } else {
+    //     setOutcome("You lost.");
+    // }
+
+    // if (props.isGameOver == true && props.winner == "user") {
+    //     "Hooray you won!";
+    // } else {
+    //     "Sorry, no breakfast for you.";
+    // }
 
     return (
         <div className="Outcome">
-            <summary>{outcome}</summary>
+            <summary>
+                {props.isGameOver ? <div>{props.outcome}</div> : <div>{props.outcome}</div>}
+            </summary>
         </div>
     )
 }
