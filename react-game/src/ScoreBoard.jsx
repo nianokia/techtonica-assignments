@@ -1,57 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Outcome from "./Outcome";
 
 export default function ScoreBoard(props) {
-    // setGameOver, setOutcome
-    // const [winner, setWinner] = useState(null);
-    const [gameOver, setGameOver] = useState(null);
-    const [outcome, setOutcome] = useState("");
-
-    // const handleWinner = () => {
-    //     while (props.moves > 0) {
-    //         if (winner == "user") {
-    //             setOutcome("You won!");
-    //         } else {
-    //             setOutcome("You lost.");
-    //         }
-    //     }
-
-    //     if (props.moves === 0) {
-    //         if (userScore > compScore) {
-    //             // setWinner("user");
-    //             setOutcome("Hooray you won!");
-    //         } else {
-    //             // setWinner("comp");
-    //             setOutcome("Sorry, no breakfast for you :(");
-    //         }
-    //         setGameOver(true);
-    //     }
-    // }
-
-    // if (moves == 0) {
-    //     setGameOver(true);
-    // }
-
-    // This code block is breaking the game
-    // const isGameOver = (moves === 0) ? (
-    //     setGameOver(true)
-    // ) : (
-    //     setGameOver(false)
-    // );
-
-    // handleWinner();
-
-    useEffect(() => {
-        if (props.moves === 0) {
-            if (props.userScore > props.compScore) {
-                setOutcome("You won! Time to eat!");
-            } else {
-                setOutcome("Sorry, no breakfast for you :(");
-            }
-        }
-        setGameOver(true);
-    }, [props.moves, props.userScore, props.compScore]);
-
     return (
         <>
             <div className="ScoreBoard">
@@ -65,12 +15,10 @@ export default function ScoreBoard(props) {
                 </span>
             </div>
             <Outcome 
-                winner={props.moves === 0 ? (props.userScore > props.compScore ? "user" : "comp") : null}
+                // If moves = 0, set outcome to winner/loser message
                 outcome={props.moves === 0 ? (props.userScore > props.compScore ? "You won! Time to eat!" : "Sorry, no breakfast for you :(") : null}
                 isGameOver={props.moves === 0}
              />
-            {/* <Outcome winner={winner} outcome={outcome} isGameOver={gameOver} /> */}
         </>
-        
     )
 }
