@@ -1,3 +1,5 @@
+![waffle](https://github.com/user-attachments/assets/780eb092-4058-4170-af73-e2d59a0025d4)
+![pancake](https://github.com/user-attachments/assets/6004ed0c-5176-4c2f-a1ee-9bae652a6c7e)
 # Breakfast React Game
 A game to decide whether you'll have waffles or pancakes for breakfast.
 
@@ -25,3 +27,4 @@ A game to decide whether you'll have waffles or pancakes for breakfast.
 
 ### About the Developer
 Nia Wright is a software engineer who primarily works with HTML, CSS, Javascript, and React. This is her first time creating a game. Check out her other [projects](https://github.com/nianokia)!
+![breakfast](https://github.com/user-attachments/assets/039d04be-4852-4d90-9f7e-8d4a68291bdc)
