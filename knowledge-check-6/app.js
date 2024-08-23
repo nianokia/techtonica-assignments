@@ -9,15 +9,37 @@ const port = 3000;
 const oauthToken = 'UUH34GIN6L5R4HFU4PTL';
 
 // Example route for fetching user details
+app.get('/user-details', async (res, req) => {
+    console.log("Fetching user details");
 
+    const data = await fetch(`https://www.eventbriteapi.com/v3/users/me/?token=${oauthToken}`);
+    const userDetails = await data.json();
+    
+    res.res.send(`The user's name is ${userDetails.name}.`);
+});
 
+const event_id = 918770797187;
 
 // Example route for fetching event details
+app.get('/event-details', async (res, req) => {
+    console.log("Fetching event details");
 
+    const data = await fetch(`https://www.eventbriteapi.com/v3/events/${event_id}/?token=${oauthToken}`);
+    const eventDetails = await data.json();
+
+    res.res.send(`Event Name: ${eventDetails.name.text} -- Description: ${eventDetails.summary}`);
+});
 
 
 // Example route for fetching ticket class details
+app.get('/event-ticket-classes', async (res, req) => {
+    console.log("Fetching event ticket class details.");
 
+    const data = await fetch(`https://www.eventbriteapi.com/v3/events/${event_id}/ticket_classes/?token=${oauthToken}`);
+    const ticketClasses = await data.json();
+
+    res.res.send(`Ticket Classes: ${ticketClasses.ticket_classes[0].name}, ${ticketClasses.ticket_classes[1].name}, ${ticketClasses.ticket_classes[2].name}`);
+});
 
 
 // Example route for fetching order details
