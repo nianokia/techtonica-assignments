@@ -71,7 +71,7 @@ export default function PickASide() {
                 <button id="pancake" value="pancake" onClick={handleUserChoice} disabled={moves <= 0}>Pancake</button>
             </section>
 
-            <CoinFlip randomSide={randomSide} image={image} />
+            <CoinFlip image={image} />
 
             {/* Pass all states to the restart component to reset them */}
             <Restart {...{setUserChoice, setUserScore, setCompScore, setMoves, setImage}} breakfast={breakfast} />
