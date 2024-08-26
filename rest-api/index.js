@@ -21,114 +21,110 @@ const pool = new Pool({
     password: 'postgres',
     port: 5432,
 })
-
+// eventually move sensitive information into .env folder
 
 // make express use body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-let urlencodedParser = bodyParser.urlencoded({ extended: false });
+// let urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
-// create route for READ (get) : fetch data from collection
+// ----------- READ route (get) : fetch data from collection -----------
+
+// Homepage
 app.get('/', (req, res) => {
-    // res.send displays on front end or the html
     res.send("Welcome to my REST API! ---------------- Navigate to /api/manga to see the data for my favorite manga.");
-    console.log("SUCCESS!");
+    console.log("SUCCESS! Discover Nia's favorite manga series!");
 });
 
+// Manga List
 app.get('/api/manga', (req, res) => {
-    console.log("Here is the list of manga");
+    console.log("Detailed List of Nia's favorite manga");
 
     // get data from the database
     pool.query('SELECT * FROM manga', (err, results) => {
         if (err) {
             console.error(err);
-            return;
         }
-        console.log("We're connected to the database.");
+
+        // display all rows from database on the front end
         res.json(results.rows);
     });
 
-    pool.release;
+    // After further research, the release isn't necessary in this project since I'm using pool.query and it automatically connects to the pool and then returns it back.
+    // pool.release;
 });
 
 
-// create CREATE route (post) : submit new data to collection
+// ----------- CREATE route (post) : submit new data to collection -----------
+
 app.post('/add-manga', async (req, res) => {
     console.log(req);
+
+    // contain SQL command in a variable, interpolate user input
     const queryString = `INSERT INTO manga ("title", "author", "genre", "volumes", "yearpublished") VALUES (\'${req.body.title}\', \'${req.body.author}\', \'${req.body.genre}\', ${req.body.volumes}, ${req.body.yearPublished})`;
 
-    // get data from the database
     pool.query(queryString, (err, results) => {
         if (err) {
             console.error(err);
-            return;
         }
-        console.log("Adding a manga to the database.");
         res.json(results.rows[0]);
     });
 
-    pool.release;
-    
-    res.send({message: "New manga added"});
+    // pool.release;    
+    res.send("Manga added");
 });
 
 
-// create UPDATE route (put) : update in collection
+// ----------- UPDATE route (put) : update in collection -----------
+
+// add id to URL path to specify which row to update
 app.put('/update-manga/:id', async (req, res) => {
     console.log("Update manga");
+
+    // store the id parameter from route
     const { id } = req.params;
+
+    // cleaner way to define req.body
     const { title, author, genre, volumes, yearPublished } = req.body;
 
     const queryString = `UPDATE manga SET title = $1, author = $2, genre = $3, volumes = $4, yearPublished = $5 WHERE id = ${id} RETURNING *`;
 
     try {
-        const updatedManga = await pool.query(queryString, [title, author, genre, volumes, yearPublished]);
-
-        // var data;
-        //  // get data from the database
-        // pool.query(queryString, async (err, results) => {
-        //     if (err) {
-        //         console.error(err);
-        //         return;
-        //     }
-        //     console.log("We've updated the database.");
-        //     // res.json(results.rows);
-        //     data = await results.rows;
-        // }, [title, author, genre, volumes, yearPublished]);
+        await pool.query(queryString, [title, author, genre, volumes, yearPublished]);
 
         res.send(`The manga with id = ${id} has been updated`);
         console.log("Manga updated");
-
-        pool.release;
-
+        // pool.release;
     } catch (err) {
-        res.send("Error: ", err);
+        console.error(err);
     }
-    
 });
 
 
-// create DELETE route (delete) : delete in collection
+// ----------- DELETE route (delete) : delete in collection -----------
+
 app.delete('/delete-manga/:id', async (req, res) => {
     console.log("Delete manga");
     const { id } = req.params;
 
-     // get data from the database
-    pool.query(`DELETE FROM manga WHERE id = ${id}`, (err, results) => {
+    const queryString = `DELETE FROM manga WHERE id = ${id}`;
+
+    pool.query(queryString, (err, results) => {
         if (err) {
             console.error(err);
-            return;
         }
         
         res.send(`The manga with id = ${id} was deleted`);
         console.log("Manga deleted");
     });
 
-    pool.release;
+    // pool.release;
 });
 
-// listen to port
+
+// ----------- Listen to port -----------
+
 let server = app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`)
 });
