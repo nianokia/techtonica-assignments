@@ -8,7 +8,7 @@ import bodyParser from "body-parser";
 const app = express();
 const PORT = 5001;
 
-// configurate cors middleware... why? idk
+// configurate cors middleware
 app.use(cors());
 
 // set up database connection
@@ -21,7 +21,8 @@ const pool = new Pool({
     password: 'postgres',
     port: 5432,
 })
-// eventually move sensitive information into .env folder
+
+// FUTURE: move sensitive information into .env folder
 
 // make express use body-parser
 app.use(bodyParser.json());
@@ -31,13 +32,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // ----------- READ route (get) : fetch data from collection -----------
 
-// Homepage
+// HOMEPAGE
 app.get('/', (req, res) => {
     res.send("Welcome to my REST API! ---------------- Navigate to /api/manga to see the data for my favorite manga.");
     console.log("SUCCESS! Discover Nia's favorite manga series!");
 });
 
-// Manga List
+// LIST OF MANGA
 app.get('/api/manga', (req, res) => {
     console.log("Detailed List of Nia's favorite manga");
 
