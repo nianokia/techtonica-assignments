@@ -59,7 +59,7 @@ app.get('/api/manga', (req, res) => {
 // ----------- CREATE route (post) : submit new data to collection -----------
 
 app.post('/add-manga', async (req, res) => {
-    console.log(req);
+    console.log("Add manga")
 
     // contain SQL command in a variable, interpolate user input
     const queryString = `INSERT INTO manga ("title", "author", "genre", "volumes", "yearpublished") VALUES (\'${req.body.title}\', \'${req.body.author}\', \'${req.body.genre}\', ${req.body.volumes}, ${req.body.yearPublished})`;
@@ -71,7 +71,8 @@ app.post('/add-manga', async (req, res) => {
         res.json(results.rows[0]);
     });
 
-    // pool.release;    
+    // pool.release; 
+    console.log(req.body);   
     res.send("Manga added");
 });
 
