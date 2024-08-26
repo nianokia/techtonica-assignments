@@ -39,9 +39,6 @@ app.get('/', (req, res) => {
 app.get('/api/manga', (req, res) => {
     console.log("Here is the list of manga");
 
-    // res.json shows manga data in json format on frontend
-    // res.json(manga);
-
     // get data from the database
     pool.query('SELECT * FROM manga', (err, results) => {
         if (err) {
@@ -58,27 +55,73 @@ app.get('/api/manga', (req, res) => {
 
 // create CREATE route (post) : submit new data to collection
 app.post('/add-manga', async (req, res) => {
+    console.log(req);
+    const queryString = `INSERT INTO manga ("title", "author", "genre", "volumes", "yearpublished") VALUES (\'${req.body.title}\', \'${req.body.author}\', \'${req.body.genre}\', ${req.body.volumes}, ${req.body.yearPublished})`;
 
-    const newManga = {
-        id: req.body.id,
-        title: req.body.title,
-        author: req.body.author,
-        genre: req.body.genre,
-        volumes: req.body.volumes,
-        yearPublished: req.body.yearPublished
-    };
+    // get data from the database
+    pool.query(queryString, (err, results) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log("Adding a manga to the database.");
+        res.json(results.rows[0]);
+    });
 
-    console.log(newManga);
+    pool.release;
     
     res.send({message: "New manga added"});
 });
 
 
 // create UPDATE route (put) : update in collection
+app.put('/update-manga/:id', async (req, res) => {
+    console.log("Update manga");
+    const { id } = req.params;
+    const { title, author, genre, volumes, yearPublished } = req.body;
+
+    const queryString = `UPDATE manga SET title = $1, author = $2, genre = $3, volumes = $4, yearPublished = $5 WHERE id = ${id} RETURNING *`;
+
+    try {
+        const updatedManga = await pool.query(queryString, [title, author, genre, volumes, yearPublished]);
+
+        // var data;
+        //  // get data from the database
+        // pool.query(queryString, async (err, results) => {
+        //     if (err) {
+        //         console.error(err);
+        //         return;
+        //     }
+        //     console.log("We've updated the database.");
+        //     // res.json(results.rows);
+        //     data = await results.rows;
+        // }, [title, author, genre, volumes, yearPublished]);
+
+        res.send(`The manga with id = ${id} has been updated`);
+        pool.release;
+    } catch (err) {
+        res.send("Error: ", err);
+    }
+    
+});
 
 
 // create DELETE route (delete) : delete in collection
+app.delete('/delete-manga/:id', async (req, res) => {
+    console.log("Delete manga");
 
+     // get data from the database
+    pool.query('DELETE FROM manga WHERE id=15', (err, results) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log("Deleting a manga from the database.");
+        res.json(results.rows);
+    });
+
+    pool.release;
+});
 
 // listen to port
 let server = app.listen(PORT, () => {
