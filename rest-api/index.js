@@ -90,10 +90,10 @@ app.put('/update-manga/:id', async (req, res) => {
     // cleaner way to define req.body
     const { title, author, genre, volumes, yearPublished } = req.body;
 
-    // const queryString = `UPDATE manga SET title = $1, author = $2, genre = $3, volumes = $4, yearPublished = $5 WHERE id = ${id} RETURNING *`;
-
+    // select manga that user wants to update
     const queryById = await pool.query(`SELECT * FROM manga WHERE id = ${id}`);
     
+    // declare new key variables and set them to the same value if new value is not specified
     const newTitle = title || queryById.rows[0].title;
     const newAuthor = author || queryById.rows[0].author;
     const newGenre = genre || queryById.rows[0].genre;
@@ -102,13 +102,14 @@ app.put('/update-manga/:id', async (req, res) => {
 
     try {
         const queryString = `UPDATE manga SET title = $1, author = $2, genre = $3, volumes = $4, yearPublished = $5 WHERE id = ${id} RETURNING *`;
-        const newQuery = await pool.query(queryString, [newTitle, newAuthor, newGenre, newVolumes, newYearPublished]);
 
-        // const queryByI = await pool.query(`SELECT * FROM manga WHERE id = ${id}`);
+        const updatedManga = await pool.query(queryString, [newTitle, newAuthor, newGenre, newVolumes, newYearPublished]);
 
         res.send(`The manga with id = ${id} has been updated`);
         console.log("Manga updated");
-        console.log(newQuery.rows[0]);
+        
+        // log updated manga
+        console.log(updatedManga.rows[0]);
 
     } catch (err) {
         console.error(err);
