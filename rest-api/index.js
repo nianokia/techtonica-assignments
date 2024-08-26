@@ -98,7 +98,10 @@ app.put('/update-manga/:id', async (req, res) => {
         // }, [title, author, genre, volumes, yearPublished]);
 
         res.send(`The manga with id = ${id} has been updated`);
+        console.log("Manga updated");
+
         pool.release;
+
     } catch (err) {
         res.send("Error: ", err);
     }
@@ -109,15 +112,17 @@ app.put('/update-manga/:id', async (req, res) => {
 // create DELETE route (delete) : delete in collection
 app.delete('/delete-manga/:id', async (req, res) => {
     console.log("Delete manga");
+    const { id } = req.params;
 
      // get data from the database
-    pool.query('DELETE FROM manga WHERE id=15', (err, results) => {
+    pool.query(`DELETE FROM manga WHERE id = ${id}`, (err, results) => {
         if (err) {
             console.error(err);
             return;
         }
-        console.log("Deleting a manga from the database.");
-        res.json(results.rows);
+        
+        res.send(`The manga with id = ${id} was deleted`);
+        console.log("Manga deleted");
     });
 
     pool.release;
@@ -127,5 +132,3 @@ app.delete('/delete-manga/:id', async (req, res) => {
 let server = app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`)
 });
-
-// ALL THATS LEFT - make sure all crud operations work
