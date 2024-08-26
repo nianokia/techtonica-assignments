@@ -5,6 +5,8 @@ import cors from "cors";
 import pkg from "pg";
 import bodyParser from "body-parser";
 
+import 'dotenv/config';
+
 const app = express();
 const PORT = 5001;
 
