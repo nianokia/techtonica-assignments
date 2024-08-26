@@ -14,15 +14,14 @@ app.use(cors());
 // set up database connection
 const { Pool } = pkg;
 
+// sensitive info is stored in local env file
 const pool = new Pool({
-    user: 'tpl622_2',
-    host: 'localhost',
-    database: 'restapiproject',
-    password: 'postgres',
-    port: 5432,
+    user: process.env.USER,
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
+    port: process.env.PORT,
 })
-
-// FUTURE: move sensitive information into .env folder
 
 // make express use body-parser
 app.use(bodyParser.json());
