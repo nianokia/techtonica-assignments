@@ -6,7 +6,7 @@ import pkg from "pg";
 import bodyParser from "body-parser";
 
 const app = express();
-const PORT = 5000;
+const PORT = 5001;
 
 // configurate cors middleware... why? idk
 app.use(cors());
