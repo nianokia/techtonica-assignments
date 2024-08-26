@@ -72,7 +72,6 @@ app.post('/add-manga', async (req, res) => {
         res.json(results.rows[0]);
     });
 
-    // pool.release; 
     console.log(req.body);   
     res.send("Manga added");
 });
@@ -97,7 +96,7 @@ app.put('/update-manga/:id', async (req, res) => {
 
         res.send(`The manga with id = ${id} has been updated`);
         console.log("Manga updated");
-        // pool.release;
+
     } catch (err) {
         console.error(err);
     }
@@ -120,8 +119,6 @@ app.delete('/delete-manga/:id', async (req, res) => {
         res.send(`The manga with id = ${id} was deleted`);
         console.log("Manga deleted");
     });
-
-    // pool.release;
 });
 
 
