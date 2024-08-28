@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  const [message, setMessage] = useState("Hello world!")
+  const [message, setMessage] = useState("")
   useEffect(() => {
     fetch('/')
       .then((res) => res.text())
