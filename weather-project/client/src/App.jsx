@@ -1,22 +1,14 @@
-import { useEffect, useState } from 'react'
+import React from 'react'
+import Weather from './Weather';
 import './App.css'
 
-function App() {
-  const [message, setMessage] = useState("")
-  useEffect(() => {
-    fetch('/')
-      .then((res) => res.text())
-      .then((data) => setMessage(data))
-      .catch((err) => console.log(err));
-  }, []);
-
+export default function App() {
   return (
     <>
       <div>
-        <h1>{message}</h1>
+        <h1>Weather App</h1>
+        <Weather />
       </div>
     </>
   )
 }
-
-export default App
