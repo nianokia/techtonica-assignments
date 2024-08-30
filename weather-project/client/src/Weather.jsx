@@ -41,7 +41,7 @@ export default function Weather() {
             <h2>Hello</h2>
             <form action="" onSubmit={handleSubmit}>
                 <input type="text" placeholder='Enter a city...' onChange={onChange} value={city}/>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Search" />
             </form>
             <p>
                 {
