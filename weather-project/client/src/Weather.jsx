@@ -9,9 +9,19 @@ export default function Weather() {
         fetch(`http://localhost:3030/weather?${params}`)
             .then((response) => response.json())
             .then((result) => {
-                console.log(result);
+                let dataResults = result.data;
+                console.log(dataResults);
                 setCity(city);
-                setWeatherData(weatherData);
+                setWeatherData({
+                    name: dataResults.name,
+                    temperature: dataResults.main.temp,
+                    description: dataResults.weather[0].description,
+                    humidity: dataResults.main.humidity,
+                    wind: dataResults.wind.speed,
+                    icon: dataResults.weather[0].icon,
+                    iconUrl: `https://openweathermap.org/img/wn/${dataResults.weather[0].icon}@2x.png`,
+                    timezone: dataResults.timezone,
+                });
             }
         );
     }
@@ -32,7 +42,9 @@ export default function Weather() {
                 <input type="text" placeholder='Enter a city...' onChange={onChange} value={city}/>
                 <input type="submit" value="Submit" />
             </form>
-            WeatherData : {weatherData}
+            <p>
+                WeatherData : {weatherData.name}
+            </p>
         </>
     )
 }
