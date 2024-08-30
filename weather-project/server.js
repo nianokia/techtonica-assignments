@@ -16,7 +16,7 @@ app.get('/weather', async (req, res) => {
   const city = req.query.cityName;
   const apiKey = process.env.APIKEY;
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
   await fetch(url)
     .then((res) => res.json())
