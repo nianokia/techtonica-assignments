@@ -15,11 +15,11 @@ export default function Weather() {
                 setWeatherData({
                     isLoaded: true,
                     name: dataResults.name,
-                    temperature: dataResults.main.temp,
+                    temperature: Math.round(dataResults.main.temp),
                     description: dataResults.weather[0].description,
                     humidity: dataResults.main.humidity,
-                    wind: dataResults.wind.speed,
                     icon: dataResults.weather[0].icon,
+                    wind: Math.round(dataResults.wind.speed),
                     iconUrl: `https://openweathermap.org/img/wn/${dataResults.weather[0].icon}@2x.png`,
                     timezone: dataResults.timezone,
                 });
