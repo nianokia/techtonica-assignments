@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Weather() {
-    const [weatherData, setWeatherData] = useState("");
+    const [weatherData, setWeatherData] = useState({ isLoaded: false });
     const [city, setCity] = useState("");
 
     const search = (city) => {
@@ -13,6 +13,7 @@ export default function Weather() {
                 console.log(dataResults);
                 setCity(city);
                 setWeatherData({
+                    isLoaded: true,
                     name: dataResults.name,
                     temperature: dataResults.main.temp,
                     description: dataResults.weather[0].description,
@@ -43,7 +44,9 @@ export default function Weather() {
                 <input type="submit" value="Submit" />
             </form>
             <p>
-                WeatherData : {weatherData.name}
+                {
+                    weatherData ? weatherData.name : null
+                }
             </p>
         </>
     )
