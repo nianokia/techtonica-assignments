@@ -45,7 +45,16 @@ export default function Weather() {
             </form>
             <p>
                 {
-                    weatherData ? weatherData.name : null
+                    weatherData.isLoaded ? (
+                        <div>
+                            <h2>{weatherData.name}</h2>
+                            <h3>{weatherData.temperature}ºF</h3>
+                            <img src={weatherData.iconUrl} alt={weatherData.description} />
+                            <h4>{weatherData.description}</h4>
+                            <p>Humidity: {weatherData.humidity}%</p>
+                            <p>Wind: {weatherData.wind} mph</p>
+                        </div>
+                    ) : null
                 }
             </p>
         </>
