@@ -32,7 +32,7 @@ Packages
 * nodemon
 
 API
-* Open Weather 
+* [Open Weather](https://openweathermap.org/api)
 
 ## Future Implementations
 
@@ -43,4 +43,4 @@ API
 
 
 ## About the Developer
-Nia Wright is a software engineer who primarily works with HTML, CSS, Javascript, and React. This is her first time creating a game. Check out her other projects!
+[Nia Wright](https://niawright.netlify.app/) is a software engineer who primarily works with HTML, CSS, Javascript, and React.
