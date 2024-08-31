@@ -1,4 +1,5 @@
 # Weather App
+![weather-demo](https://github.com/user-attachments/assets/3dcc1691-38d3-444f-97fe-b72a8f535edb)
 
 ## Description
 
