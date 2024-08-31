@@ -37,11 +37,10 @@ export default function Weather() {
     }
 
     return (
-        <>
-            <h2>Hello</h2>
-            <form action="" onSubmit={handleSubmit}>
-                <input type="text" placeholder='Enter a city...' onChange={onChange} value={city}/>
-                <input type="submit" value="Search" />
+        <div className="Weather">
+             <form action="" onSubmit={handleSubmit}>
+                <input type="text" placeholder='Enter a city...' onChange={onChange} value={city} id="searchBar"/>
+                <input type="submit" value="➜" id="submit" />
             </form>
             <p>
                 {
@@ -57,6 +56,6 @@ export default function Weather() {
                     ) : null
                 }
             </p>
-        </>
+        </div>
     )
 }
