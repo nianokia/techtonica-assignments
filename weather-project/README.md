@@ -1,5 +1,5 @@
 # Weather App
-![weather-demo](https://github.com/user-attachments/assets/3dcc1691-38d3-444f-97fe-b72a8f535edb){ .image25percent }
+![weather-demo](https://github.com/user-attachments/assets/3dcc1691-38d3-444f-97fe-b72a8f535edb)
 
 ## Description
 
@@ -13,14 +13,14 @@ The app will display:
 * Humidity
 * Wind Speed
 
-### Instructions
+## Instructions
 
 1. Type valid city in the search bar.
 2. Press enter or click ➜ to activate search.
 3. Observe the results below.
 4. To search for another city, simply type it in the search bar.
 
-### Technologies
+## Technologies
 
 * React.js
 * Node.js
