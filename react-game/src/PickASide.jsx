@@ -17,21 +17,31 @@ export default function PickASide() {
     const [userScore, setUserScore] = useState(0);
     const [compScore, setCompScore] = useState(0);
 
-
-    // Initialize randomSide & sideFlipped to empty string
-    let randomSide = "";
-    let sideFlipped = "";
-
+    const [isFlipping, setIsFlipping] = useState(false); // new state to handle flipping animation
+    const [side, setSide] = useState(null); // track the side (waffle or pancake) for animation
 
     // Flip coin
     const determineSideFlipped = () => {
+        setIsFlipping(true); // start flipping animation
+        
         // round math.random to the nearest integer, if 0 then show waffle, else show pancake
-        randomSide = Math.round(Math.random()) === 0 ? "waffle" : "pancake";
+        const randomSide = Math.round(Math.random()) === 0 ? "waffle" : "pancake";
 
-        // setImage of coin to waffle or pancake image
-        sideFlipped = randomSide === "waffle" ? setImage(waffle) : setImage(pancake);
+        // stop flipping after 2 seconds (same as the animation duration)
+        setTimeout(() => {
+            setIsFlipping(false); 
+            // set the image after animation finishes
+            setImage(randomSide === "waffle" ? waffle : pancake);
+            // set the side (waffle or pancake) for animation
+            setSide(randomSide);
+            // logic for scoring
+            if (userChoice == randomSide) {
+                setUserScore(userScore + 1);
+            } else {
+                setCompScore(compScore + 1);
+            }  
+        }, 2000);
     }
-
 
     // Handle user clicking waffle or pancake button
     const handleUserChoice = (event) => {
@@ -44,20 +54,13 @@ export default function PickASide() {
             setUserChoice("waffle");
         } else {
             setUserChoice("pancake");
-        }
-        
+        } 
     }
 
     // Listen for when moves changes & call determineSideFlipped and distribute points
     useEffect(() => {
         if (userChoice != null && moves < 3) {
             determineSideFlipped();
-
-            if (userChoice == randomSide) {
-                setUserScore(userScore + 1);
-            } else {
-                setCompScore(compScore + 1);
-            }  
         }
     }, [moves]);
     
@@ -67,16 +70,17 @@ export default function PickASide() {
             <h3 id="moves">Moves Left: {moves}</h3>
 
             <section>
-                <button id="waffle" value="waffle" onClick={handleUserChoice} disabled={moves <= 0}>Waffle</button> or
-                <button id="pancake" value="pancake" onClick={handleUserChoice} disabled={moves <= 0}>Pancake</button>
+                <button id="waffle" value="waffle" onClick={handleUserChoice} disabled={moves <= 0 || isFlipping}>Waffle</button> or
+                <button id="pancake" value="pancake" onClick={handleUserChoice} disabled={moves <= 0 || isFlipping}>Pancake</button>
             </section>
 
-            <CoinFlip image={image} />
+            {/* Pass the flipping state and side to CoinFlip */}
+            <CoinFlip image={image} isFlipping={isFlipping} side={side} />
 
             {/* Pass all states to the restart component to reset them */}
             <Restart {...{setUserChoice, setUserScore, setCompScore, setMoves, setImage}} breakfast={breakfast} />
 
-            <ScoreBoard moves={moves} userScore={userScore} compScore={compScore} />
+            <ScoreBoard moves={moves} userScore={userScore} compScore={compScore} isFlipping={isFlipping} />
         </div>
     )
 }

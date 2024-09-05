@@ -1,0 +1,29 @@
+/* Add the heads-spin animation for waffle */
+.heads-flip {
+    animation: heads-spin 2s ease-in-out forwards;
+}
+
+/* Add the tails-spin animation for pancake */
+.tails-flip {
+    animation: tails-spin 2s ease-in-out forwards;
+}
+
+/* Keyframes for waffle (heads-spin) */
+@keyframes heads-spin {
+    0% {
+        transform: rotateX(0) scale(1);
+    }
+    100% {
+        transform: rotateX(2160deg) scale(1.5);
+    }
+}
+
+/* Keyframes for pancake (tails-spin) */
+@keyframes tails-spin {
+    0% {
+        transform: rotateX(0) scale(1);
+    }
+    100% {
+        transform: rotateX(2160deg) scale(1.5);
+    }
+}
