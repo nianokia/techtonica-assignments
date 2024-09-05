@@ -16,8 +16,9 @@ export default function ScoreBoard(props) {
             </div>
             <Outcome 
                 // If moves = 0, set outcome to winner/loser message
-                outcome={props.moves === 0 ? (props.userScore > props.compScore ? "You won! Time to eat!" : "Sorry, no breakfast for you :(") : null}
-                isGameOver={props.moves === 0}
+                // Delay outcome until animation finishes
+                outcome={props.moves === 0  && !props.isFlipping ? (props.userScore > props.compScore ? "You won! Time to eat!" : "Sorry, no breakfast for you :(") : null}
+                isGameOver={props.moves === 0  && !props.isFlipping}
              />
         </>
     )
