@@ -16,6 +16,11 @@ A game to decide whether you'll have waffles or pancakes for breakfast.
     2. Make 3 guesses
     3. Click "restart" button to restart the game
 
+## DEM0
+
+![Demo of Gameplay](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTZhMGpucjQ0OHE0aTI5NWpxMWFqNTk0eGIxdWRqaG53enNuY2JsNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vPyUBDds0A6V68DySR/giphy.gif)
+
+
 ## Future Ideas
 - Include a table to show the history of their coin flips
   - History disappears on page reload, but not on clicking "restart"
