@@ -1,0 +1,67 @@
+{
+    "data": {
+        "response_code": 0,
+        "results": [
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Entertainment: Japanese Anime &amp; Manga",
+                "question": "Which part from the JoJo&#039;s Bizarre Adventure manga is about a horse race across America?",
+                "correct_answer": "Part 7: Steel Ball Run",
+                "incorrect_answers": [
+                "Part 6: Stone Ocean",
+                "Part 3: Stardust Crusaders",
+                "Part 5: Golden Wind"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Entertainment: Japanese Anime &amp; Manga",
+                "question": "In &quot;Future Diary&quot;, what is the name of Yuno Gasai&#039;s Phone Diary?",
+                "correct_answer": "Yukiteru Diary",
+                "incorrect_answers": [
+                "Murder Diary",
+                "Escape Diary ",
+                "Justice Diary "
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Entertainment: Japanese Anime &amp; Manga",
+                "question": "In &quot;To Love-Ru&quot;, Ren and Run are from what planet?",
+                "correct_answer": "Memorze",
+                "incorrect_answers": [
+                "Deviluke",
+                "Mistletoe",
+                "Okiwana"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Entertainment: Japanese Anime &amp; Manga",
+                "question": "Who is the colossal titan in &quot;Attack On Titan&quot;?",
+                "correct_answer": "Bertolt Hoover",
+                "incorrect_answers": [
+                "Reiner",
+                "Eren",
+                "Sasha"
+                ]
+            },
+            {
+                "type": "multiple",
+                "difficulty": "easy",
+                "category": "Entertainment: Japanese Anime &amp; Manga",
+                "question": "On what medium was &quot;Clannad&quot; first created?",
+                "correct_answer": "Visual novel",
+                "incorrect_answers": [
+                "Anime",
+                "Manga",
+                "Light novel"
+                ]
+            }
+        ]
+    }
+}
