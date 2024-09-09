@@ -1,9 +1,13 @@
-# Project Objectives
+# Anime & Manga Trivia
+## Features
 
 * Implement data fetching from an external API using a GET request (Trivia API).
 * Parse and display retrieved JSON data in the React frontend.
 * Utilize React components, props, and state to manage game data.
 * Track user answers and display win/lose messages based on performance.
+
+## Demo
+![demo](https://github.com/user-attachments/assets/32bb6c67-346d-4a09-b605-645c0c79f15f)
 
 ## Technologies Used
 
@@ -19,11 +23,6 @@
 * Additional Tools:
     * Node.js
     * Postman (API testing)
-
-## Prerequisites
-
-* Basic knowledge of JavaScript, React, and Node.js
-* Familiarity with Express.js and the Fetch API
 
 ## Setup Instructions
 
@@ -98,7 +97,7 @@ full-stack-trivia-game/
 └── server.js
 
 
-## Implementation Details
+### Implementation Details
 
 * The `server.js` file will handle the Express server setup and utilize the Fetch API to retrieve data from the Trivia API.
 * React components will be created in the `client` directory to manage the game interface, question display, user interaction, and win/lose logic.
@@ -108,13 +107,7 @@ full-stack-trivia-game/
 ### Resources
 
 * Trivia API: [https://opentdb.com/](https://opentdb.com/)
-* FreeCodeCamp Game Tutorial (For reference, uses create-react-app): [https://www.freecodecamp.org/news/how-to-build-a-quiz-app-using-react-and-typescript/](https://www.freecodecamp.org/news/how-to-build-a-quiz-app-using-react-and-typescript/)   
-
 * Vite Documentation: (Refer to official documentation for setup specifics)
-
-### Contributing
-
-Feel free to fork the project and contribute your improvements!
 
 ### License
 
