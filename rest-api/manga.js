@@ -82,4 +82,5 @@ const manga = [
   }
 ]
 
-export default manga;
+// export default manga;
+module.exports = manga;
