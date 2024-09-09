@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 app.get('/trivia', async (req, res) => {
     const trivia = req.query;
 
-    const url = "https://opentdb.com/api.php?amount=10&category=31&difficulty=easy&type=multiple";
+    const url = `https://opentdb.com/api.php?amount=5&category=31&difficulty=easy&type=multiple`;
 
     await fetch(url)
     .then((res) => res.json())
