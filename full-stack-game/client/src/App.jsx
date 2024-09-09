@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
-import TriviaForm from './TriviaForm';
+import TriviaForm from "./TriviaForm";
 
 export default function App() {
   const [displayQuiz, setDisplayQuiz] = useState(false);
@@ -15,14 +15,11 @@ export default function App() {
 
   return (
     <>
-      <div className='App'>
+      <div className="App">
         <h1>Anime & Manga Trivia</h1>
-        {!displayQuiz ? (
-          <button onClick={playGame}>Play</button>
-        ) : null
-        }
+        {!displayQuiz ? <button onClick={playGame}>Play</button> : null}
         {displayQuiz && <TriviaForm />}
       </div>
     </>
-  )
+  );
 }
