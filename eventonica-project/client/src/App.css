@@ -73,3 +73,8 @@ button.btn.btn-primary {
   margin-left: 2em;
   margin-right: 2em;
 }
+
+.Search {
+  margin-top: 40px;
+  flex: 0.75;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Form } from "react-bootstrap"
-import Event from "./Event";
+import { Button, Form, Card } from "react-bootstrap"
+import * as ioicons from 'react-icons/io5'
 
 const Search = ({ events }) => {
   const [searchEvent, setSearchEvent] = useState(null);
@@ -42,10 +42,23 @@ const Search = ({ events }) => {
         <Button type="submit" className="btn-search">→</Button>
       </Form>
       {searchEvent ?
-        <ul>
+        <ul style={{marginTop: '15px'}}>
           {events.filter(event => event.name.toLowerCase().includes(searchEvent)).map(filteredEvent => (
             <li key={filteredEvent.id}>
-              <Event event={filteredEvent} />
+              <Card>
+                <Card.Body style={{display: 'flex', gap: '15px', margin: '0 auto', alignItems: 'center'}}>
+                  {/* <div>
+                    {filteredEvent.isFavorite == true ? 
+                      <ioicons.IoHeartSharp style={{color: "red", fontSize: '40px'}} /> : 
+                      <ioicons.IoHeartOutline style={{color: "red", fontSize: '40px'}} />
+                    }
+                  </div> */}
+                  <div>
+                    <Card.Title>{filteredEvent.name}</Card.Title>
+                    <Card.Text>{filteredEvent.date}</Card.Text>
+                  </div>
+                </Card.Body>
+              </Card>
             </li>
           ))}
         </ul> : null}

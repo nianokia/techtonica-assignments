@@ -45,8 +45,9 @@ const MyForm = ({ onSaveEvent, editingEvent, onUpdateEvent }) => {
   };
 
   const handleFavoriteChange = (event) => {
-    const isFavorite = event.target.checked;
-    dispatch({ type: 'editIsFavorite', payload: isFavorite });
+    let isChecked = event.target.checked;
+    // isChecked == null ? isChecked = false : isChecked = true;
+    dispatch({ type: 'editIsFavorite', payload: isChecked });
   };
 
   const clearForm = () => {
