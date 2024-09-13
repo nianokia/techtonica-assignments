@@ -1,121 +1,178 @@
-import React, { useState, useEffect } from 'react'
+import React, { useReducer } from 'react'
 import { Button, Form } from "react-bootstrap"
 
-const MyForm = ({ onSaveStudent, editingStudent, onUpdateStudent }) => {
+const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
+  const initialState = {
+    individual: "", 
+    date_time: "", 
+    location: "", 
+    health: false, 
+    email: "", 
+    created_at: "" 
+  };
 
-    // This is the original State with not initial student 
-    const [student, setStudent] = useState(editingStudent || {
-        firstname: "",
-        lastname: "",
-        is_current: false
-    });
-
-    //create functions that handle the event of the user typing into the form
-    const handleNameChange = (event) => {
-        const firstname = event.target.value;
-        setStudent((student) => ({ ...student, firstname }));
-
-    };
-
-    const handleLastnameChange = (event) => {
-        const lastname = event.target.value;
-        setStudent((student) => ({ ...student, lastname }));
-    };
-
-    const handleCheckChange = (event) => {
-        const is_current = event.target.checked;
-        //console.log(iscurrent);
-        setStudent((student) => ({ ...student, is_current }));
-    };
-
-    const clearForm = () => {
-        setStudent({ firstname: "", lastname: "", is_current: false })
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'editIndividual':
+        return { ...state, name: action.payload};
+      case 'editDate_Time':
+        return {...state, date: action.payload};
+      case 'editLocation':
+        return {...state, location: action.payload};
+      case 'editHealth':
+        return {...state, health: action.payload};
+      case 'editEmail':
+        return {...state, email: action.payload};
+      case 'editCreated_At':
+        return {...state, created_at: action.payload};
+      case 'reset':
+        return { ...initialState }
+      default:
+        return state;
     }
+  }
 
-    //A function to handle the post request
-    const postStudent = (newStudent) => {
-        return fetch("http://localhost:8080/api/students", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newStudent),
-        })
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                //console.log("From the post ", data);
-                //I'm sending data to the List of Students (the parent) for updating the list
-                onSaveStudent(data);
-                //this line just for cleaning the form
-                clearForm();
-            });
-    };
+  const [state, dispatch] = useReducer(reducer, editingSighting || initialState);
 
-    //A function to handle the post request
-    const putStudent = (toEditStudent) => {
-        return fetch(`http://localhost:8080/api/students/${toEditStudent.id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(toEditStudent),
-        })
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                onUpdateStudent(data);
-                //this line just for cleaning the form
-                clearForm();
-            });
-    };
+  //create functions that handle the event of the user typing into the form
+  const handleIndividualChange = (event) => {
+    const individual = event.target.value;
+    dispatch({ type: 'editIndividual', payload: individual });
+  };
+
+  const handleDate_TimeChange = (event) => {
+    const date_time = event.target.value;
+    dispatch({ type: 'editDate_Time', payload: date_time });
+  };
+
+  const handleLocationChange = (event) => {
+    const location = event.target.value;
+    dispatch({ type: 'editLocation', payload: location });
+  };
+
+  const handleHealthChange = (event) => {
+    let isChecked = event.target.checked;
+    // isChecked == null ? isChecked = false : isChecked = true;
+    dispatch({ type: 'editHealth', payload: isChecked });
+  };
+
+  const handleEmailChange = (event) => {
+    const email = event.target.value;
+    dispatch({ type: 'editEmail', payload: email });
+  };
+
+  const clearForm = () => {
+    dispatch({ type: 'reset', payload: initialState })
+  }
+
+  //A function to handle the post request
+  const postSighting = (newSighting) => {
+    return fetch("http://localhost:8080/api/sightings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newSighting),
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      //console.log("From the post ", data);
+      //I'm sending data to the List of Sightings (the parent) for updating the list
+      onSaveSighting(data);
+      //this line just for cleaning the form
+      clearForm();
+    });
+  };
+
+  //A function to handle the post request
+  const putSighting = (toEditSighting) => {
+    return fetch(`http://localhost:8080/api/sightings/${toEditSighting.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(toEditSighting),
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      onUpdateSighting(data);
+      //this line just for cleaning the form
+      clearForm();
+    });
+  };
 
 
-    //A function to handle the submit in both cases - Post and Put request!
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (student.id) {
-            putStudent(student);
-        } else {
-            postStudent(student);
-        }
-    };
+  //A function to handle the submit in both cases - Post and Put request!
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (state.id) {
+      putSighting(state);
+    } else {
+      postSighting(state);
+    }
+  };
 
-    return (
-        <Form className='form-students' onSubmit={handleSubmit}>
-            <Form.Group>
-                <Form.Label>First Name</Form.Label>
-                <input
-                    type="text"
-                    id="add-user-name"
-                    placeholder="First Name"
-                    required
-                    value={student.firstname}
-                    onChange={handleNameChange}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Last Name</Form.Label>
-                <input
-                    type="text"
-                    id="add-user-lastname"
-                    placeholder="Last Name"
-                    required
-                    value={student.lastname}
-                    onChange={handleLastnameChange}
-                />
-            </Form.Group>
-            <Form.Check
-                type={'checkbox'}
-                id={`isCurrent`}
-                checked={student.is_current}
-                onChange={handleCheckChange}
-                label={`Are they in the current program?`}
-            />
-            <Form.Group>
-            <Button type="submit" variant="outline-success">{student.id ? "Edit Student" : "Add Student"}</Button>
-            {student.id ? <Button type="button" variant="outline-warning" onClick={clearForm}>Cancel</Button> : null}
-            </Form.Group>
-        </Form>
-    );
+  return (
+    <Form className='form-events' onSubmit={handleSubmit}>
+      <Form.Group>
+        <Form.Label>Individual</Form.Label>
+        <input
+          type="text"
+          id="add-individual"
+          placeholder="Individual"
+          required
+          value={state.individual}
+          onChange={handleIndividualChange}
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Date & Time</Form.Label>
+        <input
+          type="datetime-local"
+          id="add-date_time"
+          placeholder="Date_Time"
+          required
+          value={state.date_time}
+          onChange={handleDate_TimeChange}
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Location</Form.Label>
+        <input
+          type="text"
+          id="add-location"
+          placeholder="Location"
+          required
+          value={state.location}
+          onChange={handleLocationChange}
+        />
+      </Form.Group>
+      <Form.Check
+        type={'checkbox'}
+        id={`health`}
+        checked={state.health}
+        onChange={handleHealthChange}
+        label={`Does the animal look healthy?`}
+      />
+      <Form.Group>
+      <Form.Group>
+        <Form.Label>Email</Form.Label>
+        <input
+          type="email"
+          id="add-email"
+          placeholder="Email"
+          required
+          value={state.email}
+          onChange={handleEmailChange}
+        />
+      </Form.Group>
+        <Button type="submit" variant="outline-success">
+          {state.id ? "Edit Sighting" : "Add Sighting"}
+        </Button>
+        {state.id ? <Button type="button" variant="outline-warning" onClick={clearForm}>Cancel</Button> : null}
+      </Form.Group>
+    </Form>
+  );
 };
 
 
