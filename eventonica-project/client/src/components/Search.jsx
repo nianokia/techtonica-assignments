@@ -23,11 +23,6 @@ const Search = ({ events }) => {
     //   </ul>
     // );
   }
-  // <ul>
-  //   {events.map((event) => {
-  //     return <li key={event.id}> <Event event={event} toDelete={onDelete} toUpdate={onUpdate} /></li>
-  //   })}
-  // </ul>
 
   return (
     <div className='Search'>
