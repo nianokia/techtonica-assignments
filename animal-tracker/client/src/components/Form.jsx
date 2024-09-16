@@ -2,21 +2,22 @@ import React, { useReducer } from 'react'
 import { Button, Form } from "react-bootstrap"
 
 const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
+
   const initialState = {
     individual: "", 
     date_time: "", 
     location: "", 
     health: false, 
     email: "", 
-    created_at: "" 
+    created_at: null 
   };
 
   function reducer(state, action) {
     switch (action.type) {
       case 'editIndividual':
-        return { ...state, name: action.payload};
+        return { ...state, individual: action.payload};
       case 'editDate_Time':
-        return {...state, date: action.payload};
+        return {...state, date_time: action.payload};
       case 'editLocation':
         return {...state, location: action.payload};
       case 'editHealth':
@@ -42,7 +43,8 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
 
   const handleDate_TimeChange = (event) => {
     const date_time = event.target.value;
-    dispatch({ type: 'editDate_Time', payload: date_time });
+    const date_timeFormat = new Date(date_time).toISOString();
+    dispatch({ type: 'editDate_Time', payload: date_timeFormat });
   };
 
   const handleLocationChange = (event) => {
@@ -51,14 +53,34 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
   };
 
   const handleHealthChange = (event) => {
-    let isChecked = event.target.checked;
-    // isChecked == null ? isChecked = false : isChecked = true;
-    dispatch({ type: 'editHealth', payload: isChecked });
+    let health = event.target.checked;
+    dispatch({ type: 'editHealth', payload: health });
   };
 
   const handleEmailChange = (event) => {
     const email = event.target.value;
     dispatch({ type: 'editEmail', payload: email });
+  };
+
+  const handleCreated_AtChange = () => {
+  const created_at = new Date().toISOString();
+
+    // new Date().toJSON().slice(0, 16);
+    // const year = created_at.getFullYear();
+    // let month = created_at.getMonth() + 1;
+    // if (month < 10) {
+    //   month = "0" + month;
+    // }
+    // const day = created_at.getDate();
+    // const hour = created_at.getHours();
+    // const minutes = created_at.getMinutes();
+    // const seconds = created_at.getSeconds();
+    // const mseconds = created_at.getMilliseconds();
+
+    // // 2024-09-11 22:30:21.231986
+    // const formattedDate = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}.${mseconds}`;
+    // console.log(formattedDate);
+    dispatch({ type: 'editCreated_At', payload: created_at });
   };
 
   const clearForm = () => {
@@ -86,7 +108,7 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
 
   //A function to handle the post request
   const putSighting = (toEditSighting) => {
-    return fetch(`http://localhost:8080/api/sightings/${toEditSighting.id}`, {
+    return fetch(`http://localhost:8080/api/sightings/${toEditSighting.sighting_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(toEditSighting),
@@ -105,7 +127,11 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
   //A function to handle the submit in both cases - Post and Put request!
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (state.id) {
+    // console.log(state);
+    handleCreated_AtChange();
+    console.log(state);
+    
+    if (state.sighting_id) {
       putSighting(state);
     } else {
       postSighting(state);
@@ -121,7 +147,7 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
           id="add-individual"
           placeholder="Individual"
           required
-          value={state.individual}
+          value={state.individual || ""}
           onChange={handleIndividualChange}
         />
       </Form.Group>
@@ -132,7 +158,7 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
           id="add-date_time"
           placeholder="Date_Time"
           required
-          value={state.date_time}
+          value={state.date_time || ""}
           onChange={handleDate_TimeChange}
         />
       </Form.Group>
@@ -143,14 +169,14 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
           id="add-location"
           placeholder="Location"
           required
-          value={state.location}
+          value={state.location || ""}
           onChange={handleLocationChange}
         />
       </Form.Group>
       <Form.Check
         type={'checkbox'}
         id={`health`}
-        checked={state.health}
+        checked={state.health || false}
         onChange={handleHealthChange}
         label={`Does the animal look healthy?`}
       />
@@ -162,18 +188,18 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
           id="add-email"
           placeholder="Email"
           required
-          value={state.email}
+          value={state.email || ""}
           onChange={handleEmailChange}
         />
       </Form.Group>
         <Button type="submit" variant="outline-success">
-          {state.id ? "Edit Sighting" : "Add Sighting"}
+          {state.sighting_id ? "Edit Sighting" : "Add Sighting"}
         </Button>
-        {state.id ? <Button type="button" variant="outline-warning" onClick={clearForm}>Cancel</Button> : null}
+        {state.sighting_id ? <Button type="button" variant="outline-warning" onClick={clearForm}>Cancel</Button> : null}
       </Form.Group>
     </Form>
   );
 };
 
 
-export default MyForm
+export default MyForm;
