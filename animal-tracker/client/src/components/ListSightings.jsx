@@ -9,7 +9,9 @@ const ListSightings = () => {
   const [sightings, setSightings] = useState([]);
 
   //this is the state needed for the UpdateRequest
-  const [editingSighting, setEditingSighting] = useState(null)
+  const [editingSighting, setEditingSighting] = useState(null);
+
+  const [healthyFilter, setHealthyFilter] = useState(false);
 
   const loadSightings = () => {
     // A function to fetch the list of sightings that will be load anytime that list change
@@ -62,10 +64,23 @@ const ListSightings = () => {
     <div className="mybody">
       <div className="list-sightings">
         <h2>Sightings</h2>
+        <label htmlFor="healthy-filter">Filter for only Healthy Animals
+          <input type="checkbox" name="healthy-filter" id="healthty-filter" checked={healthyFilter || false} onChange={(event) => setHealthyFilter(event.currentTarget.checked)}/>
+        </label>
         <ul>
-          {sightings.map((sighting) => {
-            return <li key={`sighting-${sighting.sighting_id}`}> <Sighting sighting={sighting} toDelete={onDelete} toUpdate={onUpdate} /></li>
-          })}
+          {!healthyFilter ? 
+            (sightings.map((sighting) => {
+              return <li key={`sighting-${sighting.sighting_id}`}> 
+                <Sighting sighting={sighting} toDelete={onDelete} toUpdate={onUpdate} />
+              </li>
+            })) : (
+            sightings.filter((sighting) => sighting.health == true).map((healthySighting) => {
+              return <li key={`healthySighting-${healthySighting.sighting_id}`}>
+                <Sighting sighting={healthySighting} toDelete={onDelete} toUpdate={onUpdate} />
+              </li>
+            })
+            )
+          }
         </ul>
       </div>
       <SightingsForm key={editingSighting ? editingSighting.sighting_id : null} onSaveSighting={onSaveSighting} editingSighting={editingSighting} onUpdateSighting={updateSighting} />
@@ -75,3 +90,14 @@ const ListSightings = () => {
 
 
 export default ListSightings
+
+        // <Form>
+        //   <Form.Check>
+        //     type={"checkbox"},
+        //     name={"healthy-filter"},
+        //     id={"healthty-filter"},
+        //     checked={healthyFilter || false},
+        //     onChange={setHealthyFilter},
+        //     label={"Filter for only Healthy Animals"}
+        //   </Form.Check>
+        // </Form>
