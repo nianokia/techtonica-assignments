@@ -37,18 +37,20 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
 
   //create functions that handle the event of the user typing into the form
   const handleIndividualChange = (event) => {
-    const individual = event.target.value;
+    let individual = event.target.value;
+    individual = individual[0].toUpperCase() + individual.substring(1);
     dispatch({ type: 'editIndividual', payload: individual });
   };
 
   const handleDate_TimeChange = (event) => {
     const date_time = event.target.value;
-    const date_timeFormat = new Date(date_time).toISOString();
-    dispatch({ type: 'editDate_Time', payload: date_timeFormat });
+    // const date_timeFormat = new Date(date_time).toISOString();
+    dispatch({ type: 'editDate_Time', payload: date_time });
   };
 
   const handleLocationChange = (event) => {
-    const location = event.target.value;
+    let location = event.target.value;
+    location = location[0].toUpperCase() + location.substring(1);
     dispatch({ type: 'editLocation', payload: location });
   };
 
@@ -73,8 +75,17 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
     // }
     // const day = created_at.getDate();
     // const hour = created_at.getHours();
+    // if (hour < 10) {
+    //   hour = "0" + hour;
+    // }
     // const minutes = created_at.getMinutes();
+    // if (minutes < 10) {
+    //   minutes = "0" + minutes;
+    // }
     // const seconds = created_at.getSeconds();
+    // if (seconds < 10) {
+    //   seconds = "0" + seconds;
+    // }
     // const mseconds = created_at.getMilliseconds();
 
     // // 2024-09-11 22:30:21.231986
