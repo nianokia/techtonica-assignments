@@ -63,7 +63,7 @@ const ListSightings = () => {
             <h2>Sightings</h2>
             <ul>
                 {sightings.map((sighting) => {
-                    return <li key={sighting.sighting_id}> <Sighting sighting={sighting} toDelete={onDelete} toUpdate={onUpdate} /></li>
+                    return <li key={`sighting-${sighting.sighting_id}`}> <Sighting sighting={sighting} toDelete={onDelete} toUpdate={onUpdate} /></li>
                 })}
             </ul>
         </div>
