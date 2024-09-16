@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
 app.get('/api/sightings', async (req, res) => {
     try {
         const { rows: sightings } = await db.query(
-            // 'SELECT * FROM sightings'
             `SELECT sightings.sighting_id, sightings.individual, individuals.species, sightings.date_time, sightings.location, sightings.health, species.status_code FROM sightings 
             INNER JOIN individuals ON individuals.nickname = sightings.individual 
             INNER JOIN species ON individuals.species = species.common_name`
