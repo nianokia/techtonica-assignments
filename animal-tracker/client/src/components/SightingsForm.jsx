@@ -1,7 +1,9 @@
 import React, { useReducer } from 'react'
 import { Button, Form } from "react-bootstrap"
+import { AllContext } from '../context/Context';
 
-const SightingsForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
+const SightingsForm = ({ onSaveSighting, editingSighting, onUpdateSighting, sightings }) => {
+  // const { setForm } = useContext(AllContext);
 
   const initialState = {
     individual: "", 
@@ -38,7 +40,6 @@ const SightingsForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) =>
   //create functions that handle the event of the user typing into the form
   const handleIndividualChange = (event) => {
     let individual = event.target.value;
-    // individual = individual[0].toUpperCase() + individual.substring(1);
     dispatch({ type: 'editIndividual', payload: individual });
   };
 
@@ -50,7 +51,6 @@ const SightingsForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) =>
 
   const handleLocationChange = (event) => {
     let location = event.target.value;
-    // location = location[0].toUpperCase() + location.substring(1);
     dispatch({ type: 'editLocation', payload: location });
   };
 
@@ -101,7 +101,7 @@ const SightingsForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) =>
     dispatch({ type: 'reset', payload: initialState })
   }
 
-  //A function to handle the post request
+  // ------- POST REQUEST -------
   const postSighting = (newSighting) => {
     return fetch("http://localhost:8080/api/sightings", {
       method: "POST",
@@ -112,15 +112,14 @@ const SightingsForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) =>
       return response.json();
     })
     .then((data) => {
-      //console.log("From the post ", data);
-      //I'm sending data to the List of Sightings (the parent) for updating the list
       onSaveSighting(data);
-      //this line just for cleaning the form
+
+      // clean the form
       clearForm();
     });
   };
 
-  //A function to handle the post request
+  // ------- PUT REQUEST -------
   const putSighting = (toEditSighting) => {
     return fetch(`http://localhost:8080/api/sightings/${toEditSighting.sighting_id}`, {
       method: "PUT",
@@ -132,7 +131,8 @@ const SightingsForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) =>
     })
     .then((data) => {
       onUpdateSighting(data);
-      //this line just for cleaning the form
+      
+      // clean the form
       clearForm();
     });
   };
@@ -145,6 +145,17 @@ const SightingsForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) =>
     handleCreated_AtChange();
     console.log(state);
     
+    const allIndividuals = [];
+    sightings.map((sighting) => {
+      sighting.individual
+    })
+
+    if (state.individual) {
+      setForm('individuals');
+    }
+    
+    // state.sighting_id ? putSighting(state) : postSighting(state);
+
     if (state.sighting_id) {
       putSighting(state);
     } else {

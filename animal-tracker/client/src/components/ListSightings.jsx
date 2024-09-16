@@ -2,62 +2,46 @@ import React, { useState, useEffect } from 'react'
 import * as ioicons from 'react-icons/io5'
 import SightingsForm from './SightingsForm';
 import Sighting from './Sighting';
+import IndividualForm from './IndividualForm';
 
-const ListSightings = () => {
+const ListSightings = ({ setSightings, sightings, loadSightings }) => {
 
-  // this is my original state with an array of students 
-  const [sightings, setSightings] = useState([]);
+  // ----- STATE TO UPDATE REQUEST -----
+  const [editingIndividual, setEditingIndividual] = useState(null);
 
-  //this is the state needed for the UpdateRequest
-  const [editingSighting, setEditingSighting] = useState(null);
-
+  // ----- HEALTHY FILTER STATE -----
   const [healthyFilter, setHealthyFilter] = useState(false);
-
-  const loadSightings = () => {
-    // A function to fetch the list of sightings that will be load anytime that list change
-    fetch("http://localhost:8080/api/sightings")
-      .then((response) => response.json())
-      .then((sightings) => {
-        setSightings(sightings);
-      }
-    );
-  }
 
   useEffect(() => {
     loadSightings();
-  }, [sightings]);
+  }, []);
 
-  const onSaveSighting = (newSighting) => {
-    //console.log(newSighting, "From the parent - List of Sightings");
+  // const changeSightings = useMemo(() => setSightings(useMemo(sightings)));
+
+  const onSaveIndividual = (newSighting) => {
     setSightings((sightings) => [...sightings, newSighting]);
   }
 
 
   //A function to control the update in the parent (sighting component)
-  const updateSighting = (savedSighting) => {
-    // console.log("Line 29 savedSighting", savedSighting);
-    // This function should update the whole list of sightings - 
+  const updateIndividual = (savedIndividual) => {
     loadSightings();
   }
 
   //A function to handle the Delete funtionality
   const onDelete = (sighting) => {
-    //console.log(sighting, "delete method")
+
     return fetch(`http://localhost:8080/api/sightings/${sighting.sighting_id}`, {
       method: "DELETE"
     }).then((response) => {
-      //console.log(response);
       if (response.ok) {
         loadSightings();
       }
     })
   }
 
-  //A function to handle the Update functionality
-  const onUpdate = (toUpdateSighting) => {
-    //console.log(toUpdateStudent);
-    setEditingSighting(toUpdateSighting);
-
+  const onUpdate = (toUpdateIndividual) => {
+    setEditingIndividual(toUpdateIndividual);
   }
 
   return (
@@ -83,21 +67,10 @@ const ListSightings = () => {
           }
         </ul>
       </div>
-      <SightingsForm key={editingSighting ? editingSighting.sighting_id : null} onSaveSighting={onSaveSighting} editingSighting={editingSighting} onUpdateSighting={updateSighting} />
+      <IndividualForm key={editingIndividual ? editingIndividual.individual_id : null} onSaveIndividual={onSaveIndividual} editingIndividual={editingIndividual} onUpdateIndividual={updateIndividual} />
     </div>
   );
 }
 
 
 export default ListSightings
-
-        // <Form>
-        //   <Form.Check>
-        //     type={"checkbox"},
-        //     name={"healthy-filter"},
-        //     id={"healthty-filter"},
-        //     checked={healthyFilter || false},
-        //     onChange={setHealthyFilter},
-        //     label={"Filter for only Healthy Animals"}
-        //   </Form.Check>
-        // </Form>
