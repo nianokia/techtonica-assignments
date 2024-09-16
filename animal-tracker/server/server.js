@@ -18,7 +18,11 @@ app.get('/', (req, res) => {
 // create the get request for sightings in the endpoint '/api/sightings'
 app.get('/api/sightings', async (req, res) => {
     try {
-        const { rows: sightings } = await db.query('SELECT * FROM sightings');
+        const { rows: sightings } = await db.query(
+            `SELECT sightings.sighting_id, sightings.individual, individuals.species, sightings.date_time, sightings.location, sightings.health, species.status_code FROM sightings 
+            INNER JOIN individuals ON individuals.nickname = sightings.individual 
+            INNER JOIN species ON individuals.species = species.common_name`
+        );
         res.send(sightings);
     } catch (e) {
         return res.status(400).json({ e });
@@ -39,7 +43,7 @@ app.post('/api/sightings', async (req, res) => {
         //console.log([newSightings.individual, newSighting.date_time, newSighting.location, newSighting.health, newSighting.email, newSighting.created_at]);
         const result = await db.query(
             'INSERT INTO sightings(individual, date_time, location, health, email, created_at) VALUES($1, $2, $3, $4, $5, $6) RETURNING *',
-            [newSighting.individual, newSighting.date_time, newSighting.location, newSighting.health, newSighting.email, newSighting.created_at],
+            [newSighting.individual, newSighting.date_time, newSighting.location, newSighting.health, newSighting.email, newSighting.created_at]
         );
         console.log(result.rows[0]);
         res.json(result.rows[0]);
@@ -83,7 +87,7 @@ app.put('/api/sightings/:sighting_id', async (req, res) =>{
     console.log("In the server from the url - the sighting id", sighting_id);
     console.log("In the server, from the react - the sighting to be edited", updatedSighting);
     // UPDATE sightings SET date_time = "something" WHERE sighting_id="16";
-    const query = `UPDATE sightings SET individual=$1, date_time=$2, location=$3, health=$4, email=$5, created_at=$6 WHERE sighitng_id=${sighting_id} RETURNING *`;
+    const query = `UPDATE sightings SET individual=$1, date_time=$2, location=$3, health=$4, email=$5, created_at=$6 WHERE sighting_id=${sighting_id} RETURNING *`;
     const values = [updatedSighting.individual, updatedSighting.date_time, updatedSighting.location, updatedSighting.health, updatedSighting.email, updatedSighting.created_at];
     try {
       const updated = await db.query(query, values);
