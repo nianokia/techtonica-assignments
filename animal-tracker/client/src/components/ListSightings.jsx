@@ -67,7 +67,7 @@ const ListSightings = ({ setSightings, sightings, loadSightings }) => {
           }
         </ul>
       </div>
-      <IndividualForm key={editingIndividual ? editingIndividual.individual_id : null} onSaveIndividual={onSaveIndividual} editingIndividual={editingIndividual} onUpdateIndividual={updateIndividual} />
+      <IndividualForm key={editingIndividual ? editingIndividual.individual_id : null} onSaveIndividual={onSaveIndividual} editingIndividual={editingIndividual} onUpdateIndividual={updateIndividual} loadSightings={loadSightings} />
     </div>
   );
 }

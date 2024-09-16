@@ -53,7 +53,7 @@ app.post('/api/create', async (req, res) => {
         }
 
         const speciesResult = await db.query("SELECT * FROM species WHERE species.common_name = $1", [newSighting.species]);
-        console.log("Species Result (empty): ", speciesResult);
+        console.log("Species Result (empty): ", speciesResult.rowCount);
         if (speciesResult.rowCount === 0) {
             console.log("hello from species result");
             const newSpecies = await db.query('INSERT INTO species(common_name, scientific_name, wild_population, status_code, created_at) VALUES($1, $2, $3, $4, $5) RETURNING *', [newSighting.species, newSighting.scientific_name, newSighting.wild_population, newSighting.status_code, newSighting.created_at]);
@@ -117,7 +117,7 @@ app.put('/api/sightings/:individual_id', async (req, res) =>{
         }
 
         const speciesResult = await db.query("SELECT * FROM species WHERE species.common_name = $1", [updatedSighting.species]);
-        console.log("Species Result (empty): ", speciesResult);
+        console.log("Species Result (empty): ", speciesResult.rowCount);
         if (speciesResult.rowCount === 0) {
             console.log("hello from updated species result");
             const updatedSpecies = await db.query('INSERT INTO species(common_name, scientific_name, wild_population, status_code, created_at) VALUES($1, $2, $3, $4, $5) RETURNING *', [updatedSighting.species, updatedSighting.scientific_name, updatedSighting.wild_population, updatedSighting.status_code, updatedSighting.created_at]);

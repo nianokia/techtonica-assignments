@@ -12,7 +12,6 @@ const IndividualForm = ({ onSaveIndividual, editingIndividual, onUpdateIndividua
     nickname: "", 
     species: "", 
     created_at: null,
-    health: false,
     common_name: "", 
     scientific_name: "", 
     wild_population: "",

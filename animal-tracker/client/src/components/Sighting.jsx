@@ -32,6 +32,7 @@ const Sighting = ({sighting, toUpdate, toDelete}) => {
     return `${month}/${day}/${year} ${hour}:${minutes}`;
   }
 
+  // doesn't work
   const formatCasing = (value) => {
     const words = value.split(" ");
     return words.map((word) => {
@@ -42,7 +43,7 @@ const Sighting = ({sighting, toUpdate, toDelete}) => {
   return (
     <Card>
       <Card.Body>
-        <Card.Title>{sighting.individual} - {formatCasing(sighting.species)}</Card.Title>
+        <Card.Title>{sighting.individual} - {sighting.species}</Card.Title>
         <Card.Text>{formatDate(sighting.date_time)}</Card.Text>
         <Card.Text>{sighting.location}</Card.Text>
         <Card.Text>
