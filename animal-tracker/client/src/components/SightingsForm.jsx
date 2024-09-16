@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import { Button, Form } from "react-bootstrap"
 
-const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
+const SightingsForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
 
   const initialState = {
     individual: "", 
@@ -38,7 +38,7 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
   //create functions that handle the event of the user typing into the form
   const handleIndividualChange = (event) => {
     let individual = event.target.value;
-    individual = individual[0].toUpperCase() + individual.substring(1);
+    // individual = individual[0].toUpperCase() + individual.substring(1);
     dispatch({ type: 'editIndividual', payload: individual });
   };
 
@@ -50,7 +50,7 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
 
   const handleLocationChange = (event) => {
     let location = event.target.value;
-    location = location[0].toUpperCase() + location.substring(1);
+    // location = location[0].toUpperCase() + location.substring(1);
     dispatch({ type: 'editLocation', payload: location });
   };
 
@@ -73,16 +73,19 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
     // if (month < 10) {
     //   month = "0" + month;
     // }
-    // const day = created_at.getDate();
-    // const hour = created_at.getHours();
+    // let day = created_at.getDate();
+    // if (day < 10) {
+    //   day = "0" + day;
+    // }
+    // let hour = created_at.getHours();
     // if (hour < 10) {
     //   hour = "0" + hour;
     // }
-    // const minutes = created_at.getMinutes();
+    // let minutes = created_at.getMinutes();
     // if (minutes < 10) {
     //   minutes = "0" + minutes;
     // }
-    // const seconds = created_at.getSeconds();
+    // let seconds = created_at.getSeconds();
     // if (seconds < 10) {
     //   seconds = "0" + seconds;
     // }
@@ -150,67 +153,69 @@ const MyForm = ({ onSaveSighting, editingSighting, onUpdateSighting }) => {
   };
 
   return (
-    <Form className='form-events' onSubmit={handleSubmit}>
-      <Form.Group>
-        <Form.Label>Individual</Form.Label>
-        <input
-          type="text"
-          id="add-individual"
-          placeholder="Individual"
-          required
-          value={state.individual || ""}
-          onChange={handleIndividualChange}
+    <>
+      {/* <h2>Sightings Form</h2> */}
+      <Form className='form-events' onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label>Individual</Form.Label>
+          <input
+            type="text"
+            id="add-individual"
+            placeholder="Individual"
+            required
+            value={state.individual || ""}
+            onChange={handleIndividualChange}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Date & Time</Form.Label>
+          <input
+            type="datetime-local"
+            id="add-date_time"
+            required
+            value={state.date_time || ""}
+            onChange={handleDate_TimeChange}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Location</Form.Label>
+          <input
+            type="text"
+            id="add-location"
+            placeholder="Location"
+            required
+            value={state.location || ""}
+            onChange={handleLocationChange}
+          />
+        </Form.Group>
+        <Form.Check
+          type={'checkbox'}
+          id={`health`}
+          checked={state.health || false}
+          onChange={handleHealthChange}
+          label={`Does the animal look healthy?`}
         />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Date & Time</Form.Label>
-        <input
-          type="datetime-local"
-          id="add-date_time"
-          placeholder="Date_Time"
-          required
-          value={state.date_time || ""}
-          onChange={handleDate_TimeChange}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Location</Form.Label>
-        <input
-          type="text"
-          id="add-location"
-          placeholder="Location"
-          required
-          value={state.location || ""}
-          onChange={handleLocationChange}
-        />
-      </Form.Group>
-      <Form.Check
-        type={'checkbox'}
-        id={`health`}
-        checked={state.health || false}
-        onChange={handleHealthChange}
-        label={`Does the animal look healthy?`}
-      />
-      <Form.Group>
-      <Form.Group>
-        <Form.Label>Email</Form.Label>
-        <input
-          type="email"
-          id="add-email"
-          placeholder="Email"
-          required
-          value={state.email || ""}
-          onChange={handleEmailChange}
-        />
-      </Form.Group>
-        <Button type="submit" variant="outline-success">
-          {state.sighting_id ? "Edit Sighting" : "Add Sighting"}
-        </Button>
-        {state.sighting_id ? <Button type="button" variant="outline-warning" onClick={clearForm}>Cancel</Button> : null}
-      </Form.Group>
-    </Form>
+        <Form.Group>
+          <Form.Label>Email</Form.Label>
+          <input
+            type="email"
+            id="add-email"
+            placeholder="Email"
+            required
+            value={state.email || ""}
+            onChange={handleEmailChange}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Button type="submit" variant="outline-success">
+            {state.sighting_id ? "Edit Sighting" : "Add Sighting"}
+          </Button>
+          {state.sighting_id ? <Button type="button" variant="outline-warning" onClick={clearForm}>Cancel</Button> : null}
+        </Form.Group>
+      </Form>
+    </>
   );
 };
 
 
-export default MyForm;
+export default SightingsForm;
