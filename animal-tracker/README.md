@@ -33,7 +33,7 @@ An app that displays a form for a user to log an individual animal sighting. App
     * Postico 2
 
 ## Demo
-![demo](link)
+![demo](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDhvMzBnZDJ3bmpmc2ZpY3FibWloajF5MTczNWJiNG9wb2l2d2Q4bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CrK1PLUXdUPyd1caji/giphy.gif)
 
 ## Setup Instructions
 
@@ -113,7 +113,8 @@ An app that displays a form for a user to log an individual animal sighting. App
 * Data fetched from the database will be parsed and displayed in the React components.
 
 ## Planning Process
-![project diagram](/planning-process-diagram.png)
+![planning-process-diagram](https://github.com/user-attachments/assets/1cec4518-b7c7-42dd-8294-188b14b13732)
+
 
 ## Future Implementations
 * Display favorite icon to showcase whether the event was favorited or not
