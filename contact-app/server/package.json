@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": " concurrently 'npm start' 'cd .. && cd client && npm run dev' ",
     "start": "nodemon server.js",
     "server": "nodemon server.js"
   },
